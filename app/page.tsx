@@ -17,7 +17,7 @@ export default function LandingPage() {
 
     try {
       const { error } = await supabase
-        .from('WaitlistTable')
+        .from('waitlist')
         .insert([{ email: formattedEmail }]);
 
       if (error) throw error;
