@@ -44,7 +44,7 @@ export default function LandingPage() {
       <header className="w-full h-20 flex items-center justify-between px-6 max-w-6xl mx-auto">
         <div className="flex items-center gap-2">
           <img src="/logo-org-white-bg.jpeg" alt="Trix Travel Logo" className="w-12 h-12 rounded-md object-cover" />
-          <span className="font-semibold text-xl text-[#304ffe]">Trix Travel</span>
+          <span className="font-semibold text-xl text-primary">Trix Travel</span>
         </div>
         {/* Visível apenas no Mobile */}
         <div className="block md:hidden">
