@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { supabase } from '../lib/supabase'; // Ajuste o caminho se necessário
+import { supabase } from '../lib/supabase';
 
 export default function LandingPage() {
   const [email, setEmail] = useState('');
@@ -43,12 +43,13 @@ export default function LandingPage() {
       {/* HEADER */}
       <header className="w-full h-20 flex items-center justify-between px-6 max-w-6xl mx-auto">
         <div className="flex items-center gap-2">
-          <div className="w-10 h-10 bg-teal-600 rounded-md flex items-center justify-center text-white font-bold text-xl">T</div>
+          <img src="/logo-org-white-bg.jpeg" alt="Trix Travel Logo" className="w-12 h-12 rounded-md object-cover" />
           <span className="font-semibold text-xl text-teal-600">Trix Travel</span>
         </div>
-        <div className="hidden md:flex">
+        {/* Aqui está o bloqueio: "block" no celular, "hidden" (escondido) a partir do tamanho "md" (tablet/desktop) */}
+        <div className="block md:hidden">
           <a 
-            href="https://trix.travel/onboarding" 
+            href="https://app.trix.travel" 
             className="text-sm font-medium text-gray-600 hover:text-teal-600 transition-colors"
           >
             Já é Beta? Faça Login
@@ -94,9 +95,12 @@ export default function LandingPage() {
           )}
         </div>
         <div className="flex-1">
-           <div className="w-full h-96 bg-gray-100 rounded-xl shadow-2xl flex items-center justify-center text-gray-400 border border-gray-200">
-              [Imagem do Trix Travel]
-           </div>
+           {/* Imagem principal resgatada do seu app */}
+           <img 
+              src="/lp-trix-phone.jpeg" 
+              alt="Interface do Trix Travel" 
+              className="w-full max-w-md mx-auto rounded-xl shadow-2xl object-cover"
+           />
         </div>
       </section>
 
@@ -171,6 +175,7 @@ export default function LandingPage() {
           </div>
           
           <div className="flex gap-6 text-sm text-gray-500">
+            {/* O mailto exato que você usava no FlutterFlow */}
             <a href="mailto:pena@trix.travel?subject=Trix%20Travel%20-%20Contato" className="hover:text-teal-600 transition-colors">Suporte</a>
             <a href="/termos" className="hover:text-teal-600 transition-colors">Termos de Uso</a>
             <a href="/privacidade" className="hover:text-teal-600 transition-colors">Política de Privacidade</a>
