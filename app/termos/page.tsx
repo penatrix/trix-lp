@@ -1,33 +1,68 @@
 import React from 'react';
 
-export default function Politica() {
+export default function Termos() {
   return (
     <div className="max-w-4xl mx-auto px-6 py-20 font-sans text-gray-800">
       <h1 className="text-4xl font-bold mb-8">Termos de Uso</h1>
       <div className="prose prose-teal max-w-none">
-        <p>Bem-vindo(a) à Trix Travel ("nós", "nosso" ou "Trix"). Ao acessar nosso aplicativo, site (trix.travel) e serviços relacionados, você concorda com estes Termos de Uso. Leia atentamente.
+        {/* Conteúdo */}
+      <main className="max-w-4xl mx-auto px-6 py-8 text-primary-text">
+        <h2 className="text-3xl font-bold mb-1">Terms of Use</h2>
+        <p className="text-sm text-secondary-text mb-8">Last update: July 2026</p>
 
-1. O Serviço Trix Travel
-A Trix Travel atua como um concierge de viagens nativo em Inteligência Artificial. Nosso propósito é eliminar a fadiga analítica do planejamento de viagens, gerando roteiros hiper-personalizados com base em suas preferências (orçamento, ritmo, acompanhantes, pet-friendly, etc.).
+        <div className="space-y-6 text-sm md:text-base leading-relaxed">
+          <p>
+            Welcome to Trix Travel ("we", "our", or "Trix"). By accessing our app, website (trix.travel), and related services, you agree to these Terms of Use. Please read them carefully.
+          </p>
 
-2. Cadastro e Segurança da Conta
-Para salvar roteiros e acessar recursos avançados, você deve criar uma conta. Você é responsável por manter a confidencialidade de suas credenciais. Nosso sistema de autenticação é seguro (gerenciado via Supabase), mas a segurança de seu dispositivo é sua responsabilidade. Você pode deletar sua conta e todos os dados associados a qualquer momento através do menu "Settings" do aplicativo, em conformidade com as diretrizes da Apple e do Google.
+          <section>
+            <h3 className="font-semibold mb-1">1. The Trix Travel Service</h3>
+            <p className="text-secondary-text">
+              Trix Travel operates as an AI-native travel concierge. Our purpose is to eliminate analytical fatigue from travel planning by generating hyper-personalized itineraries based on your budget, pace, and specific preferences.
+            </p>
+          </section>
 
-3. Isenção de Responsabilidade sobre Reservas e Afiliados
-A Trix Travel não é uma agência de viagens tradicional. Nós fornecemos sugestões de roteiros e logística geradas por IA. Os links fornecidos para hotéis, passagens aéreas e atrações podem ser links de afiliados (modelo B2B2C invisível), gerando comissão para a Trix sem custo adicional para você.
-Não garantimos a disponibilidade em tempo real ou preços estáticos de fornecedores terceiros. Não nos responsabilizamos por overbooking, cancelamentos, acidentes ou disputas comerciais entre você e os prestadores de serviço finais.
+          <section>
+            <h3 className="font-semibold mb-1">2. Account Registration and Security</h3>
+            <p className="text-secondary-text">
+              To save itineraries and access advanced features, you must create an account. You are responsible for safeguarding your login credentials. Our authentication is secured (managed via Supabase). You may delete your account and associated data at any time via the "Settings" menu within the app, following Apple and Google store guidelines.
+            </p>
+          </section>
 
-4. Uso Aceitável da Plataforma
-Você concorda em não:
-Fazer engenharia reversa de nosso motor de geração de roteiros ou abusar da nossa integração com APIs (como Gemini e Cloud Run).
-Gerar roteiros em massa através de bots ou scripts automatizados.
-Utilizar a plataforma para qualquer fim ilegal, fraudulento ou não autorizado.
+          <section>
+            <h3 className="font-semibold mb-1">3. Booking Disclaimer and Affiliate Links</h3>
+            <p className="text-secondary-text">
+              Trix Travel is not a traditional travel agency. We provide AI-generated itinerary logic and suggestions. Links to hotels, flights, and attractions may be affiliate links (B2B2C model), which generate a commission for Trix at no extra cost to you.
+              <br />
+              We do not guarantee real-time availability or static pricing from third-party suppliers. We are not liable for overbooking, cancellations, accidents, or commercial disputes between you and the final service providers.
+            </p>
+          </section>
 
-5. Limitação de Responsabilidade
-O Trix Travel utiliza tecnologias de ponta para cruzar dados. Contudo, informações sobre horários de funcionamento, regras locais e custos estimados podem mudar na vida real. O usuário assume total responsabilidade por verificar informações críticas (como documentação, segurança e vistos) antes da viagem.
+          <section>
+            <h3 className="font-semibold mb-1">4. Acceptable Use</h3>
+            <p className="text-secondary-text">You agree not to:</p>
+            <ul className="list-disc pl-5 mt-2 space-y-1 text-secondary-text">
+              <li>Reverse engineer our itinerary generation engine or abuse our APIs integrations (like Gemini and Cloud Run).</li>
+              <li>Generate itineraries in bulk using bots or automated scripts.</li>
+              <li>Use the platform for any illegal, fraudulent, or unauthorized purpose.</li>
+            </ul>
+          </section>
 
-6. Lei Aplicável e Foro
-Estes Termos são regidos pelas leis da República Federativa do Brasil. Fica eleito o foro da Comarca de Curitiba, Paraná, sede da nossa operação, para dirimir quaisquer controvérsias.</p>
+          <section>
+            <h3 className="font-semibold mb-1">5. Limitation of Liability</h3>
+            <p className="text-secondary-text">
+              Trix Travel utilizes cutting-edge technologies to cross-reference data. However, operating hours, local rules, and estimated costs may change in real life. Users bear total responsibility for verifying critical information (like visas, safety, and documentation) before traveling.
+            </p>
+          </section>
+
+          <section>
+            <h3 className="font-semibold mb-1">6. Governing Law</h3>
+            <p className="text-secondary-text">
+              These Terms are governed by the laws of the Federative Republic of Brazil. Any disputes shall be resolved in the jurisdiction of Curitiba, Parana, the headquarters of our operation.
+            </p>
+          </section>
+        </div>
+      </main>
         </div>
       <a href="/" className="mt-8 inline-block text-teal-600 font-semibold hover:underline">
         &larr; Voltar para a Home
