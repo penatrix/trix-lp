@@ -39,7 +39,7 @@ export default function LandingPage() {
   };
 
   return (
-    <div className="min-h-screen bg-secondary-bg text-primary-text font-sans">
+    <div className="min-h-screen bg-[#ffffff] text-[#14181b] font-sans">
       {/* HEADER */}
       <header className="w-full h-20 flex items-center justify-between px-6 max-w-6xl mx-auto">
         <div className="flex items-center gap-2">
