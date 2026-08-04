@@ -1,29 +1,28 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export const metadata = {
-  title: 'Trix Travel | Menos planilhas. Mais malas prontas.',
-  description: 'Seu roteiro perfeito de 15 dias criado em minutos. A logística real para o mundo real, no seu ritmo.',
+export const metadata: Metadata = {
+  title: "Trix Travel | Menos planilhas. Mais malas prontas.",
+  description: "Seu roteiro perfeito de 15 dias criado em segundos. A logística real para o mundo real.",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+// Configurando as duas fontes do Google
+const inter = Inter({ subsets: ["latin"], variable: '--font-inter' });
+const outfit = Outfit({ subsets: ["latin"], variable: '--font-outfit' });
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    // Injetamos as variáveis das fontes na tag html
+    <html lang="pt-BR" className={`${inter.variable} ${outfit.variable}`}>
+      {/* font-sans aplica o Inter por padrão no corpo inteiro do site */}
+      <body className="font-sans bg-secondary-bg text-primary-text antialiased">
+        {children}
+      </body>
     </html>
   );
 }
