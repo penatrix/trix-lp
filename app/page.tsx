@@ -110,11 +110,16 @@ export default function LandingPage() {
           )}
         </div>
         <div className="flex-1">
-           <img 
-              src="/lp-trix-phone.jpeg" 
-              alt="Interface do Trix Travel no Celular" 
-              className="w-full max-w-sm mx-auto rounded-3xl shadow-2xl object-cover"
-           />
+           {/* VÍDEO 1: Roteiro Complexo - LIMPO, sem bordas! */}
+           <video 
+            autoPlay 
+            loop 
+            muted 
+            playsInline 
+            className="w-full max-w-sm mx-auto mix-blend-multiply outline-none border-none"
+          >
+            <source src="/demo-roteiro.mp4" type="video/mp4" />
+          </video>
         </div>
       </section>
 
@@ -156,6 +161,33 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* DISCOVERY SECTION (VÍDEO 2) */}
+      <section className="max-w-6xl mx-auto px-6 py-24 flex flex-col md:flex-row-reverse items-center gap-12 border-b border-alternate">
+        <div className="flex-1 space-y-6">
+          <span className="text-secondary font-semibold text-sm uppercase tracking-wider">
+            Módulo Discovery
+          </span>
+          <h2 className="font-outfit text-3xl md:text-4xl font-bold text-primary-text">
+            Não sabe para onde ir? <br /> Dê match com seu destino.
+          </h2>
+          <p className="text-lg text-secondary-text max-w-lg">
+            Deixe as buscas genéricas para trás. Nosso matchmaker de viagens cruza as experiências que você mais ama com destinos no mundo todo. Descubra sua próxima aventura de forma viciante.
+          </p>
+        </div>
+        <div className="flex-1">
+           {/* VÍDEO 2: Módulo Discovery - LIMPO, sem bordas! */}
+           <video 
+              autoPlay 
+              loop 
+              muted 
+              playsInline 
+              className="w-full max-w-sm mx-auto mix-blend-multiply outline-none border-none"
+            >
+              <source src="/demo-discovery.mp4" type="video/mp4" />
+            </video>
+        </div>
+      </section>
+
       {/* BOTTOM CTA */}
       <section className="max-w-4xl mx-auto px-6 py-24 text-center">
         <h2 className="font-outfit text-3xl md:text-4xl font-bold mb-4 text-primary-text">Pronto para viajar melhor?</h2>
@@ -188,10 +220,11 @@ export default function LandingPage() {
             {messageCTA.text}
           </p>
         )}
+        <p className="text-xs text-secondary-text mt-4">Junte-se a outros viajantes. Sem spam, cancele quando quiser.</p>
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t border-alternate bg-secondary-bg py-12">
+      <footer className="bg-secondary-bg py-12">
         <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex items-center gap-2">
             <span className="font-outfit font-semibold text-secondary-text text-lg">Trix Travel</span>
