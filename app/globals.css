@@ -1,30 +1,21 @@
 @import "tailwindcss";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@theme {
+  /* Suas cores oficiais do Trix Travel */
+  --color-primary: #304ffe;
+  --color-secondary: #00d4c5;
+  --color-tertiary: #ff5963;
+  --color-alternate: #e0e3e7;
+  --color-primary-text: #14181b;
+  --color-secondary-text: #57636c;
+  --color-primary-bg: #f1f4f8;
+  --color-secondary-bg: #ffffff;
+  --color-success: #249689;
+  --color-error: #ff5963;
+  --color-warning: #f9cf58;
+  --color-info: #ffffff;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #ffffff;
-    --foreground: #171717;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  /* Suas Fontes */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-outfit: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
 }
