@@ -123,6 +123,69 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* COMPARAÇÃO: DOR VS SOLUÇÃO */}
+      <section className="max-w-4xl mx-auto px-6 py-16">
+        <div className="text-center mb-12">
+          <h2 className="font-outfit text-3xl font-bold text-primary-text mb-4">Planejar viagens não precisa ser um trabalho.</h2>
+          <p className="text-secondary-text">Veja a diferença entre o método tradicional e a inteligência do Trix.</p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-6">
+          {/* O Jeito Antigo */}
+          <div className="bg-primary-bg p-8 rounded-2xl border border-alternate opacity-80">
+            <h3 className="font-outfit text-xl font-semibold text-primary-text mb-6 flex items-center gap-2">
+              <span className="text-tertiary">✕</span> O Jeito Antigo
+            </h3>
+            <ul className="space-y-4 text-secondary-text">
+              <li className="flex items-start gap-3">
+                <span className="mt-1 text-tertiary opacity-70">▪</span>
+                Dezenas de abas abertas no navegador.
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="mt-1 text-tertiary opacity-70">▪</span>
+                Planilhas confusas e links perdidos no WhatsApp.
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="mt-1 text-tertiary opacity-70">▪</span>
+                Medo constante de errar a logística ou a distância.
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="mt-1 text-tertiary opacity-70">▪</span>
+                Horas de pesquisa para cada dia de viagem.
+              </li>
+            </ul>
+          </div>
+
+          {/* Com o Trix */}
+          <div className="bg-secondary-bg p-8 rounded-2xl border-2 border-primary shadow-lg relative">
+            <div className="absolute -top-3 right-6 bg-primary text-info text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
+              Mágico
+            </div>
+            <h3 className="font-outfit text-xl font-semibold text-primary-text mb-6 flex items-center gap-2">
+              <span className="text-primary">✓</span> Com o Trix
+            </h3>
+            <ul className="space-y-4 text-secondary-text">
+              <li className="flex items-start gap-3">
+                <span className="mt-1 text-primary">▪</span>
+                Tudo centralizado em uma única interface limpa.
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="mt-1 text-primary">▪</span>
+                Roteiros hiper-personalizados baseados no seu ritmo.
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="mt-1 text-primary">▪</span>
+                IA que calcula deslocamentos e logística real.
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="mt-1 text-primary">▪</span>
+                Pronto para embarcar em menos de 30 segundos.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
       {/* FEATURES SECTION */}
       <section className="bg-primary-bg py-24">
         <div className="max-w-6xl mx-auto px-6">
