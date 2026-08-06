@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image'; // <-- ADICIONE ESTA LINHA
 import { supabase } from '../lib/supabase';
 
 export default function LandingPage() {
@@ -56,8 +57,14 @@ export default function LandingPage() {
       {/* HEADER */}
       <header className="w-full h-20 flex items-center justify-between px-6 max-w-6xl mx-auto">
         <div className="flex items-center gap-2">
-          <img src="/logo-org-white-bg.jpeg" alt="Trix Travel Logo" className="w-12 h-12 rounded-md object-cover shadow-sm" />
-          <span className="font-outfit font-semibold text-xl text-primary">Trix Travel</span>
+        <Image 
+          src="/logo-org-white-bg.jpeg" 
+          alt="Trix Travel Logo" 
+          width={48} 
+          height={48} 
+          className="w-12 h-12 rounded-md object-cover shadow-sm" 
+        />
+        <span className="font-outfit font-semibold text-xl text-primary">Trix Travel</span>
         </div>
         <div className="block md:hidden">
           <a 
@@ -102,6 +109,11 @@ export default function LandingPage() {
               {loadingHero ? 'Enviando...' : 'Entrar na Lista VIP'}
             </button>
           </form>
+
+          {/* NOVO: Microcopy adicionado no Hero para reduzir atrito */}
+          <p className="text-xs text-secondary-text mt-2">
+          Junte-se a outros viajantes. Sem spam, descadastre-se quando quiser.
+          </p>
 
           {messageHero && (
             <p className={`text-sm font-medium ${messageHero.type === 'success' ? 'text-success' : 'text-error'}`}>
