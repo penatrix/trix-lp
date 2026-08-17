@@ -263,6 +263,39 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* CONTEUDO UNICO: ERROS COMUNS NO EUROTRIP */}
+      <section className="max-w-4xl mx-auto px-6 py-24">
+        <h2 className="font-outfit text-3xl md:text-4xl font-bold text-primary-text mb-4">
+          Os erros mais comuns de quem monta um Eurotrip sozinho
+        </h2>
+        <p className="text-lg text-secondary-text mb-10 max-w-2xl">
+          Cruzar vários países numa mesma viagem multiplica a logística — e é onde a maioria dos roteiros feitos na mão quebra.
+        </p>
+        <div className="space-y-8">
+          <div>
+            <h3 className="font-outfit text-xl font-semibold text-primary-text mb-2">Subestimar o deslocamento entre países</h3>
+            <p className="text-secondary-text leading-relaxed">
+              No mapa parece pertinho. Na prática, entra tempo de conexão, trajeto até o aeroporto ou estação, e trem que não é tão rápido quanto o nome sugere.
+            </p>
+          </div>
+          <div>
+            <h3 className="font-outfit text-xl font-semibold text-primary-text mb-2">Ignorar a regra dos 90 dias do Espaço Schengen</h3>
+            <p className="text-secondary-text leading-relaxed">
+              Quem empalma vários países europeus numa viagem mais longa precisa somar os dias dentro do bloco Schengen — não é por país, é pelo bloco inteiro.
+            </p>
+          </div>
+          <div>
+            <h3 className="font-outfit text-xl font-semibold text-primary-text mb-2">Copiar uma rota genérica da internet</h3>
+            <p className="text-secondary-text leading-relaxed">
+              &quot;Paris–Amsterdã–Berlim em 10 dias&quot; pode ser um ótimo roteiro para outra pessoa. O que importa é se aquele ritmo de deslocamento bate com o seu, não com o de quem escreveu o post.
+            </p>
+          </div>
+        </div>
+        <p className="text-secondary-text mt-10 leading-relaxed">
+          O Trix calcula a logística real entre cidades e países — não só monta uma lista bonita de lugares pra visitar.
+        </p>
+      </section>
+
       {/* BOTTOM CTA */}
       <section className="max-w-4xl mx-auto px-6 py-24 text-center">
         <h2 className="font-outfit text-3xl md:text-4xl font-bold mb-4 text-primary-text">Pronto para viajar melhor?</h2>

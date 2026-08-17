@@ -263,6 +263,42 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* CONTEUDO UNICO: COMPARATIVO DE FERRAMENTAS */}
+      <section className="max-w-4xl mx-auto px-6 py-24">
+        <h2 className="font-outfit text-3xl md:text-4xl font-bold text-primary-text mb-4">
+          Planilha, Notion, ChatGPT genérico ou Trix?
+        </h2>
+        <p className="text-lg text-secondary-text mb-10 max-w-2xl">
+          Todo mundo já tentou organizar uma viagem em pelo menos uma dessas ferramentas. Onde cada uma quebra:
+        </p>
+        <div className="space-y-8">
+          <div>
+            <h3 className="font-outfit text-xl font-semibold text-primary-text mb-2">Planilha</h3>
+            <p className="text-secondary-text leading-relaxed">
+              Organiza o que você já decidiu, mas não decide nada por você. Toda pesquisa, todo cálculo de logística, é trabalho manual do zero.
+            </p>
+          </div>
+          <div>
+            <h3 className="font-outfit text-xl font-semibold text-primary-text mb-2">Notion e apps de notas</h3>
+            <p className="text-secondary-text leading-relaxed">
+              Melhor visual, mais fácil de compartilhar — mas ainda é você quem pesquisa, decide e monta a lógica de cada dia.
+            </p>
+          </div>
+          <div>
+            <h3 className="font-outfit text-xl font-semibold text-primary-text mb-2">ChatGPT genérico</h3>
+            <p className="text-secondary-text leading-relaxed">
+              Dá sugestões rápidas, mas não sabe geolocalização de verdade: pode inventar endereço, sugerir um lugar fechado naquele horário, ou ignorar completamente o deslocamento entre um ponto e outro.
+            </p>
+          </div>
+          <div>
+            <h3 className="font-outfit text-xl font-semibold text-primary-text mb-2">Trix</h3>
+            <p className="text-secondary-text leading-relaxed">
+              Pensa a logística real por trás de cada sugestão, nunca inventa localização, e se adapta ao seu ritmo — de mochilão a viagem tranquila em família.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* BOTTOM CTA */}
       <section className="max-w-4xl mx-auto px-6 py-24 text-center">
         <h2 className="font-outfit text-3xl md:text-4xl font-bold mb-4 text-primary-text">Pronto para viajar melhor?</h2>
