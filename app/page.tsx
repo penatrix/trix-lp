@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image'; // <-- ADICIONE ESTA LINHA
 import { supabase } from '../lib/supabase';
 
@@ -14,6 +14,31 @@ export default function LandingPage() {
   const [emailCTA, setEmailCTA] = useState('');
   const [loadingCTA, setLoadingCTA] = useState(false);
   const [messageCTA, setMessageCTA] = useState<{ text: string; type: 'success' | 'error' } | null>(null);
+
+  // Contador real de inscritos na lista VIP
+  const [waitlistCount, setWaitlistCount] = useState<number | null>(null);
+
+  useEffect(() => {
+    supabase
+      .rpc('waitlist_count')
+      .then(({ data, error }) => {
+        if (error) {
+          console.error('Erro ao buscar contador da waitlist:', error);
+          return;
+        }
+        if (typeof data === 'number') setWaitlistCount(data);
+      });
+  }, []);
+
+  const heroJoinCopy =
+    waitlistCount !== null && waitlistCount > 0
+      ? `Junte-se a ${waitlistCount} viajantes. Sem spam, descadastre-se quando quiser.`
+      : 'Junte-se a outros viajantes. Sem spam, descadastre-se quando quiser.';
+
+  const ctaJoinCopy =
+    waitlistCount !== null && waitlistCount > 0
+      ? `Junte-se a ${waitlistCount} viajantes. Sem spam, cancele quando quiser.`
+      : 'Junte-se a outros viajantes. Sem spam, cancele quando quiser.';
 
   // Função unificada que recebe qual estado deve atualizar
   const handleSubscribe = async (
@@ -112,7 +137,7 @@ export default function LandingPage() {
 
           {/* NOVO: Microcopy adicionado no Hero para reduzir atrito */}
           <p className="text-xs text-secondary-text mt-2">
-          Junte-se a outros viajantes. Sem spam, descadastre-se quando quiser.
+          {heroJoinCopy}
           </p>
 
           {messageHero && (
@@ -295,7 +320,7 @@ export default function LandingPage() {
             {messageCTA.text}
           </p>
         )}
-        <p className="text-xs text-secondary-text mt-4">Junte-se a outros viajantes. Sem spam, cancele quando quiser.</p>
+        <p className="text-xs text-secondary-text mt-4">{ctaJoinCopy}</p>
       </section>
 
       {/* FOOTER */}
