@@ -264,6 +264,39 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* CONTEUDO UNICO: COMO ESTRUTURAR 15 DIAS */}
+      <section className="max-w-4xl mx-auto px-6 py-24">
+        <h2 className="font-outfit text-3xl md:text-4xl font-bold text-primary-text mb-4">
+          Como estruturar um roteiro de 15 dias que funciona
+        </h2>
+        <p className="text-lg text-secondary-text mb-10 max-w-2xl">
+          15 dias é o formato mais comum de viagem longa: tempo suficiente pra não sentir que só bateu foto de longe, curto o bastante pra não pedir um mês de folga. Mas é fácil errar a mão. Alguns princípios que valem pra qualquer destino:
+        </p>
+        <div className="space-y-8">
+          <div>
+            <h3 className="font-outfit text-xl font-semibold text-primary-text mb-2">Divida em no máximo 3 bases</h3>
+            <p className="text-secondary-text leading-relaxed">
+              Trocar de cidade todo dia é exaustão disfarçada de aventura. Blocos de 4 a 5 dias por base dão tempo real de conhecer o lugar, sem passar metade da viagem fazendo e desfazendo mala.
+            </p>
+          </div>
+          <div>
+            <h3 className="font-outfit text-xl font-semibold text-primary-text mb-2">Reserve um dia de amortecedor a cada 5 dias corridos</h3>
+            <p className="text-secondary-text leading-relaxed">
+              Voo atrasado, cansaço, imprevisto de última hora — sem uma folga programada, o roteiro inteiro desmorona no primeiro contratempo real.
+            </p>
+          </div>
+          <div>
+            <h3 className="font-outfit text-xl font-semibold text-primary-text mb-2">Não confie só na distância no mapa</h3>
+            <p className="text-secondary-text leading-relaxed">
+              Seis atividades cabem no mapa, mas nem sempre cabem no dia — o erro mais comum é ignorar o deslocamento real entre cada ponto.
+            </p>
+          </div>
+        </div>
+        <p className="text-secondary-text mt-10 leading-relaxed">
+          É exatamente esse tipo de cálculo — quantas bases, quantos dias de descanso, quanto deslocamento cabe em cada dia — que a IA do Trix faz por você em segundos, considerando a logística real do seu destino.
+        </p>
+      </section>
+
       {/* BOTTOM CTA */}
       <section className="max-w-4xl mx-auto px-6 py-24 text-center">
         <h2 className="font-outfit text-3xl md:text-4xl font-bold mb-4 text-primary-text">Pronto para viajar melhor?</h2>
