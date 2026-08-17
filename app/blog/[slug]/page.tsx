@@ -1,6 +1,7 @@
 import { supabase } from '../../../lib/supabase';
 import ReactMarkdown from 'react-markdown';
 import Link from 'next/link';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import BlogCTA from '../../../components/BlogCTA';
@@ -27,11 +28,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   // Se o post não tiver imagem de capa, usamos a imagem principal do site como fallback
-  const ogImage = post.image_url || 'https://trix.travel/og-image.jpg';
+  const ogImage = post.image_url || 'https://trix.travel/og-image.png';
 
   return {
     title: `${post.title} | Blog Trix Travel`,
     description: `Leia o artigo "${post.title}" e descubra como otimizar suas viagens com a Trix Travel.`,
+    alternates: {
+      canonical: `/blog/${slug}`,
+    },
     openGraph: {
       title: post.title,
       description: `Leia o artigo "${post.title}" no Blog da Trix Travel.`,
@@ -55,8 +59,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-// Desativa o cache (opcional, bom manter enquanto testa)
-export const dynamic = 'force-dynamic'; 
+// Revalida o conteudo a cada hora em vez de bater no banco a cada visita
+export const revalidate = 3600;
 
 // 3. O Componente da Página (visual) que já estava funcionando
 export default async function BlogPost({ params }: Props) {
@@ -81,11 +85,16 @@ export default async function BlogPost({ params }: Props) {
         </Link>
         
         {post.image_url && (
-          <img 
-            src={post.image_url} 
-            alt={post.title} 
-            className="w-full h-64 md:h-96 object-cover rounded-3xl mb-8 shadow-md" 
-          />
+          <div className="relative w-full h-64 md:h-96 mb-8">
+            <Image
+              src={post.image_url}
+              alt={post.title}
+              fill
+              sizes="(max-width: 768px) 100vw, 768px"
+              priority
+              className="object-cover rounded-3xl shadow-md"
+            />
+          </div>
         )}
         
         <h1 className="font-outfit text-4xl md:text-5xl font-bold mb-6 leading-tight">

@@ -1,18 +1,16 @@
 import React from 'react';
+import Link from 'next/link';
 
 export default function Termos() {
   return (
-    <div className="max-w-4xl mx-auto px-6 py-20 font-sans text-gray-800">
-      <h1 className="text-4xl font-bold mb-8">Termos de Uso</h1>
-      <div className="prose prose-teal max-w-none">
-        {/* Conteúdo */}
-      <main className="max-w-4xl mx-auto px-6 py-8 text-primary-text">
-        <h2 className="text-3xl font-bold mb-1">Terms of Use</h2>
-        <p className="text-sm text-secondary-text mb-8">Last update: July 2026</p>
+    <div className="max-w-4xl mx-auto px-6 py-20 font-sans text-primary-text">
+      <main>
+        <h1 className="text-4xl font-bold mb-1">Termos de Uso</h1>
+        <p className="text-sm text-secondary-text mb-8">Última atualização: julho de 2026</p>
 
         <div className="space-y-6 text-sm md:text-base leading-relaxed">
           <p>
-            Bem-vindo(a) à Trix Travel ("nós", "nosso" ou "Trix"). Ao acessar nosso aplicativo, site (trix.travel) e serviços relacionados, você concorda com estes Termos de Uso. Leia atentamente.
+            Bem-vindo(a) à Trix Travel (&quot;nós&quot;, &quot;nosso&quot; ou &quot;Trix&quot;). Ao acessar nosso aplicativo, site (trix.travel) e serviços relacionados, você concorda com estes Termos de Uso. Leia atentamente.
           </p>
 
           <section>
@@ -25,7 +23,7 @@ export default function Termos() {
           <section>
             <h3 className="font-semibold mb-1">2. Cadastro e Segurança da Conta</h3>
             <p className="text-secondary-text">
-              Para salvar roteiros e acessar recursos avançados, você deve criar uma conta. Você é responsável por manter a confidencialidade de suas credenciais. Nosso sistema de autenticação é seguro (gerenciado via Supabase), mas a segurança de seu dispositivo é sua responsabilidade. Você pode deletar sua conta e todos os dados associados a qualquer momento através do menu "Settings" do aplicativo, em conformidade com as diretrizes da Apple e do Google.
+              Para salvar roteiros e acessar recursos avançados, você deve criar uma conta. Você é responsável por manter a confidencialidade de suas credenciais. Nosso sistema de autenticação é seguro (gerenciado via Supabase), mas a segurança de seu dispositivo é sua responsabilidade. Você pode deletar sua conta e todos os dados associados a qualquer momento através do menu &quot;Configurações&quot; do aplicativo, em conformidade com as diretrizes da Apple e do Google.
             </p>
           </section>
 
@@ -63,10 +61,10 @@ export default function Termos() {
           </section>
         </div>
       </main>
-        </div>
-      <a href="/" className="mt-8 inline-block text-teal-600 font-semibold hover:underline">
+
+      <Link href="/" className="mt-8 inline-block text-primary font-semibold hover:underline">
         &larr; Voltar para a Home
-      </a>
+      </Link>
     </div>
   );
 }
