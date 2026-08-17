@@ -1,10 +1,16 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { supabase } from '../../lib/supabase';
+
+export const revalidate = 3600;
 
 // SEO estático para a página principal do Blog
 export const metadata = {
   title: 'Blog | Trix Travel',
   description: 'Dicas de viagem, hacks de logística e novidades do Trix Travel.',
+  alternates: {
+    canonical: '/blog',
+  },
 };
 
 // Como não tem 'use client', isso roda 100% no servidor (ultra rápido e otimizado para o Google)
@@ -33,7 +39,15 @@ export default async function BlogIndex() {
             <Link href={`/blog/${post.slug}`} key={post.id} className="block group">
               <div className="bg-primary-bg rounded-2xl overflow-hidden border border-alternate hover:border-primary transition-all shadow-sm h-full flex flex-col">
                 {post.image_url ? (
-                  <img src={post.image_url} alt={post.title} className="w-full h-48 object-cover group-hover:opacity-90 transition-opacity" />
+                  <div className="relative w-full h-48">
+                    <Image
+                      src={post.image_url}
+                      alt={post.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover group-hover:opacity-90 transition-opacity"
+                    />
+                  </div>
                 ) : (
                   <div className="w-full h-48 bg-alternate flex items-center justify-center text-secondary-text">
                     Sem imagem

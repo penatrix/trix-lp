@@ -1,14 +1,12 @@
 import React from 'react';
+import Link from 'next/link';
 
 export default function Politica() {
   return (
-    <div className="max-w-4xl mx-auto px-6 py-20 font-sans text-gray-800">
-      <h1 className="text-4xl font-bold mb-8">Política de Privacidade</h1>
-      <div className="prose prose-teal max-w-none">
-        {/* Conteúdo */}
-      <main className="max-w-4xl mx-auto px-6 py-8 text-primary-text">
-        <h2 className="text-3xl font-bold mb-1">Política de Privacidade</h2>
-        <p className="text-sm text-secondary-text mb-8">Última atualização: Agosto de 2026</p>
+    <div className="max-w-4xl mx-auto px-6 py-20 font-sans text-primary-text">
+      <main>
+        <h1 className="text-4xl font-bold mb-1">Política de Privacidade</h1>
+        <p className="text-sm text-secondary-text mb-8">Última atualização: agosto de 2026</p>
 
         <div className="space-y-6 text-sm md:text-base leading-relaxed">
           <p>
@@ -42,7 +40,7 @@ export default function Politica() {
               Implementamos medidas de segurança de nível industrial para proteger sua conta. Recomendamos o uso de senhas fortes e cautela ao acessar sua conta em dispositivos públicos.
             </p>
           </section>
-          
+
           <section>
             <h3 className="font-semibold mb-1">5. Seus Direitos</h3>
             <p className="text-secondary-text">
@@ -51,10 +49,10 @@ export default function Politica() {
           </section>
         </div>
       </main>
-        </div>
-      <a href="/" className="mt-8 inline-block text-teal-600 font-semibold hover:underline">
+
+      <Link href="/" className="mt-8 inline-block text-primary font-semibold hover:underline">
         &larr; Voltar para a Home
-      </a>
+      </Link>
     </div>
   );
 }
