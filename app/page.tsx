@@ -22,15 +22,10 @@ export default function LandingPage() {
       });
   }, []);
 
-  const heroJoinCopy =
+  const joinCopy =
     waitlistCount !== null && waitlistCount > 0
-      ? `Junte-se a ${waitlistCount} viajantes. Sem spam, descadastre-se quando quiser.`
-      : 'Junte-se a outros viajantes. Sem spam, descadastre-se quando quiser.';
-
-  const ctaJoinCopy =
-    waitlistCount !== null && waitlistCount > 0
-      ? `Junte-se a ${waitlistCount} viajantes. Sem spam, cancele quando quiser.`
-      : 'Junte-se a outros viajantes. Sem spam, cancele quando quiser.';
+      ? `Junte-se a ${waitlistCount} viajantes.`
+      : null;
 
   return (
     <div className="min-h-screen bg-secondary-bg text-primary-text font-sans">
@@ -69,9 +64,9 @@ export default function LandingPage() {
             Seu roteiro perfeito de 15 dias criado em segundos. Esqueça as horas perdidas pesquisando em dezenas de abas.
           </p>
           
-          <p className="text-sm text-secondary-text">
-            {heroJoinCopy}
-          </p>
+          {joinCopy && (
+            <p className="text-sm text-secondary-text">{joinCopy}</p>
+          )}
 
           <WaitlistForm source="home_hero" variant="hero" />
         </div>
@@ -224,7 +219,9 @@ export default function LandingPage() {
           Junte-se à lista VIP e receba acesso antecipado antes do lançamento oficial.
         </p>
         <WaitlistForm source="home_cta" variant="cta" />
-        <p className="text-sm text-secondary-text mt-4">{ctaJoinCopy}</p>
+        {joinCopy && (
+          <p className="text-sm text-secondary-text mt-4">{joinCopy}</p>
+        )}
       </section>
 
       <Footer />
