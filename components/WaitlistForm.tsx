@@ -82,7 +82,7 @@ export default function WaitlistForm({ source, variant = 'hero' }: Props) {
           onChange={(e) => setConsent(e.target.checked)}
           className="mt-0.5 accent-primary"
         />
-        Quero receber novidades sobre o lançamento do Trix Travel por e-mail.
+        Quero receber também conteúdo sobre viagens e outras novidades da Trix, além do aviso de lançamento.
       </label>
 
       {message && (

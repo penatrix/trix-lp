@@ -217,7 +217,12 @@ export default function Politica() {
                       <td className="border border-alternate px-4 py-2">Obrigação legal — art. 7º, II</td>
                     </tr>
                     <tr>
-                      <td className="border border-alternate px-4 py-2">Enviar e-mails de marketing e novidades</td>
+                      <td className="border border-alternate px-4 py-2">Avisar sobre o lançamento do produto (lista de espera)</td>
+                      <td className="border border-alternate px-4 py-2">E-mail</td>
+                      <td className="border border-alternate px-4 py-2">Legítimo interesse — art. 7º, IX (finalidade da própria lista de espera)</td>
+                    </tr>
+                    <tr>
+                      <td className="border border-alternate px-4 py-2">Enviar conteúdo adicional sobre viagens e outras novidades</td>
                       <td className="border border-alternate px-4 py-2">E-mail, primeiro nome</td>
                       <td className="border border-alternate px-4 py-2">Consentimento — art. 7º, I</td>
                     </tr>
