@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter, Outfit } from 'next/font/google';
-import { GoogleAnalytics } from '@next/third-parties/google'; // <-- NOVO IMPORT AQUI
+import AnalyticsGate from '../components/AnalyticsGate';
+import CookieConsent from '../components/CookieConsent';
 import './globals.css';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
@@ -40,9 +41,9 @@ export default function RootLayout({
     <html lang="pt-BR">
       <body className={`${inter.variable} ${outfit.variable} font-sans antialiased bg-secondary-bg text-primary-text`}>
         {children}
-        
-        {/* NOVO: Componente do GA4 */}
-        <GoogleAnalytics gaId="G-PTDW9BXK9F" /> 
+
+        <CookieConsent />
+        <AnalyticsGate gaId="G-PTDW9BXK9F" />
       </body>
     </html>
   );
