@@ -1,59 +1,11 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import Image from 'next/image'; // <-- ADICIONE ESTA LINHA
-import { supabase } from '../../lib/supabase';
 import Footer from '../../components/Footer';
-
+import WaitlistForm from '../../components/WaitlistForm';
 
 export default function LandingPage() {
-  // Estados do Formulário Superior (Hero)
-  const [emailHero, setEmailHero] = useState('');
-  const [loadingHero, setLoadingHero] = useState(false);
-  const [messageHero, setMessageHero] = useState<{ text: string; type: 'success' | 'error' } | null>(null);
-
-  // Estados do Formulário Inferior (Bottom CTA)
-  const [emailCTA, setEmailCTA] = useState('');
-  const [loadingCTA, setLoadingCTA] = useState(false);
-  const [messageCTA, setMessageCTA] = useState<{ text: string; type: 'success' | 'error' } | null>(null);
-
-  // Função unificada que recebe qual estado deve atualizar
-  const handleSubscribe = async (
-    e: React.FormEvent<HTMLFormElement>,
-    emailInput: string,
-    setLoading: (state: boolean) => void,
-    setMessage: (msg: { text: string; type: 'success' | 'error' } | null) => void,
-    setEmail: (text: string) => void
-  ) => {
-    e.preventDefault();
-    setLoading(true);
-    setMessage(null);
-
-    const formattedEmail = emailInput.trim().toLowerCase();
-
-    try {
-      const { error } = await supabase
-        .from('waitlist')
-        .insert([{ email: formattedEmail }]);
-
-      if (error) throw error;
-
-      setMessage({
-        text: 'Inscrição confirmada! Você está na lista VIP do Trix.',
-        type: 'success',
-      });
-      setEmail('');
-    } catch (err: any) {
-      console.error('Erro ao cadastrar:', err);
-      setMessage({
-        text: 'Erro ao cadastrar e-mail. Tente novamente.',
-        type: 'error',
-      });
-    } finally {
-      setLoading(false);
-    }
-  };
-
   return (
     <div className="min-h-screen bg-secondary-bg text-primary-text font-sans">
       {/* HEADER */}
@@ -91,37 +43,7 @@ export default function LandingPage() {
         Pare de quebrar a cabeça montando rotas dia a dia. A inteligência artificial do Trix Travel planeja a logística perfeita da sua viagem em um clique.
         </p>
           
-          <form 
-            onSubmit={(e) => handleSubscribe(e, emailHero, setLoadingHero, setMessageHero, setEmailHero)} 
-            className="flex flex-col sm:flex-row gap-3 w-full max-w-md"
-          >
-            <input
-              type="email"
-              placeholder="Digite seu melhor e-mail..."
-              required
-              value={emailHero}
-              onChange={(e) => setEmailHero(e.target.value)}
-              className="flex-1 px-4 py-3 rounded-lg border border-alternate bg-primary-bg focus:outline-none focus:ring-2 focus:ring-primary"
-            />
-            <button
-              type="submit"
-              disabled={loadingHero}
-              className="px-6 py-3 bg-primary text-info font-medium rounded-lg hover:opacity-90 transition-opacity shadow-md disabled:opacity-50"
-            >
-              {loadingHero ? 'Enviando...' : 'Entrar na Lista VIP'}
-            </button>
-          </form>
-
-          {/* NOVO: Microcopy adicionado no Hero para reduzir atrito */}
-          <p className="text-xs text-secondary-text mt-2">
-          Junte-se a outros viajantes. Sem spam, descadastre-se quando quiser.
-          </p>
-
-          {messageHero && (
-            <p className={`text-sm font-medium ${messageHero.type === 'success' ? 'text-success' : 'text-error'}`}>
-              {messageHero.text}
-            </p>
-          )}
+          <WaitlistForm source="roteiro-de-viagem-15-dias_hero" variant="hero" />
         </div>
         <div className="flex-1">
            {/* VÍDEO 1: Roteiro Complexo - LIMPO, sem bordas! */}
@@ -304,33 +226,7 @@ export default function LandingPage() {
         <p className="text-lg text-secondary-text mb-8">
           Junte-se à lista VIP e receba acesso antecipado antes do lançamento oficial.
         </p>
-        <form 
-          onSubmit={(e) => handleSubscribe(e, emailCTA, setLoadingCTA, setMessageCTA, setEmailCTA)} 
-          className="flex flex-col sm:flex-row gap-3 justify-center w-full max-w-md mx-auto"
-        >
-          <input
-            type="email"
-            placeholder="Digite seu melhor e-mail..."
-            required
-            value={emailCTA}
-            onChange={(e) => setEmailCTA(e.target.value)}
-            className="flex-1 px-4 py-3 rounded-lg border border-alternate bg-primary-bg focus:outline-none focus:ring-2 focus:ring-primary"
-          />
-          <button
-            type="submit"
-            disabled={loadingCTA}
-            className="px-6 py-3 bg-primary text-info font-medium rounded-lg hover:opacity-90 transition-opacity shadow-md disabled:opacity-50"
-          >
-            {loadingCTA ? 'Enviando...' : 'Entrar na Lista VIP'}
-          </button>
-        </form>
-
-        {messageCTA && (
-          <p className={`mt-4 text-sm font-medium ${messageCTA.type === 'success' ? 'text-success' : 'text-error'}`}>
-            {messageCTA.text}
-          </p>
-        )}
-        <p className="text-xs text-secondary-text mt-4">Junte-se a outros viajantes. Sem spam, cancele quando quiser.</p>
+        <WaitlistForm source="roteiro-de-viagem-15-dias_cta" variant="cta" />
       </section>
 
       <Footer />
