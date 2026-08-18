@@ -4,18 +4,9 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image'; // <-- ADICIONE ESTA LINHA
 import { supabase } from '../lib/supabase';
 import Footer from '../components/Footer';
+import WaitlistForm from '../components/WaitlistForm';
 
 export default function LandingPage() {
-  // Estados do Formulário Superior (Hero)
-  const [emailHero, setEmailHero] = useState('');
-  const [loadingHero, setLoadingHero] = useState(false);
-  const [messageHero, setMessageHero] = useState<{ text: string; type: 'success' | 'error' } | null>(null);
-
-  // Estados do Formulário Inferior (Bottom CTA)
-  const [emailCTA, setEmailCTA] = useState('');
-  const [loadingCTA, setLoadingCTA] = useState(false);
-  const [messageCTA, setMessageCTA] = useState<{ text: string; type: 'success' | 'error' } | null>(null);
-
   // Contador real de inscritos na lista VIP
   const [waitlistCount, setWaitlistCount] = useState<number | null>(null);
 
@@ -31,52 +22,10 @@ export default function LandingPage() {
       });
   }, []);
 
-  const heroJoinCopy =
+  const joinCopy =
     waitlistCount !== null && waitlistCount > 0
-      ? `Junte-se a ${waitlistCount} viajantes. Sem spam, descadastre-se quando quiser.`
-      : 'Junte-se a outros viajantes. Sem spam, descadastre-se quando quiser.';
-
-  const ctaJoinCopy =
-    waitlistCount !== null && waitlistCount > 0
-      ? `Junte-se a ${waitlistCount} viajantes. Sem spam, cancele quando quiser.`
-      : 'Junte-se a outros viajantes. Sem spam, cancele quando quiser.';
-
-  // Função unificada que recebe qual estado deve atualizar
-  const handleSubscribe = async (
-    e: React.FormEvent<HTMLFormElement>,
-    emailInput: string,
-    setLoading: (state: boolean) => void,
-    setMessage: (msg: { text: string; type: 'success' | 'error' } | null) => void,
-    setEmail: (text: string) => void
-  ) => {
-    e.preventDefault();
-    setLoading(true);
-    setMessage(null);
-
-    const formattedEmail = emailInput.trim().toLowerCase();
-
-    try {
-      const { error } = await supabase
-        .from('waitlist')
-        .insert([{ email: formattedEmail }]);
-
-      if (error) throw error;
-
-      setMessage({
-        text: 'Inscrição confirmada! Você está na lista VIP do Trix.',
-        type: 'success',
-      });
-      setEmail('');
-    } catch (err: any) {
-      console.error('Erro ao cadastrar:', err);
-      setMessage({
-        text: 'Erro ao cadastrar e-mail. Tente novamente.',
-        type: 'error',
-      });
-    } finally {
-      setLoading(false);
-    }
-  };
+      ? `Junte-se a ${waitlistCount} viajantes.`
+      : null;
 
   return (
     <div className="min-h-screen bg-secondary-bg text-primary-text font-sans">
@@ -115,37 +64,11 @@ export default function LandingPage() {
             Seu roteiro perfeito de 15 dias criado em segundos. Esqueça as horas perdidas pesquisando em dezenas de abas.
           </p>
           
-          <form 
-            onSubmit={(e) => handleSubscribe(e, emailHero, setLoadingHero, setMessageHero, setEmailHero)} 
-            className="flex flex-col sm:flex-row gap-3 w-full max-w-md"
-          >
-            <input
-              type="email"
-              placeholder="Digite seu melhor e-mail..."
-              required
-              value={emailHero}
-              onChange={(e) => setEmailHero(e.target.value)}
-              className="flex-1 px-4 py-3 rounded-lg border border-alternate bg-primary-bg focus:outline-none focus:ring-2 focus:ring-primary"
-            />
-            <button
-              type="submit"
-              disabled={loadingHero}
-              className="px-6 py-3 bg-primary text-info font-medium rounded-lg hover:opacity-90 transition-opacity shadow-md disabled:opacity-50"
-            >
-              {loadingHero ? 'Enviando...' : 'Entrar na Lista VIP'}
-            </button>
-          </form>
-
-          {/* NOVO: Microcopy adicionado no Hero para reduzir atrito */}
-          <p className="text-xs text-secondary-text mt-2">
-          {heroJoinCopy}
-          </p>
-
-          {messageHero && (
-            <p className={`text-sm font-medium ${messageHero.type === 'success' ? 'text-success' : 'text-error'}`}>
-              {messageHero.text}
-            </p>
+          {joinCopy && (
+            <p className="text-sm text-secondary-text">{joinCopy}</p>
           )}
+
+          <WaitlistForm source="home_hero" variant="hero" />
         </div>
         <div className="flex-1">
            {/* VÍDEO 1: Roteiro Complexo - LIMPO, sem bordas! */}
@@ -295,33 +218,10 @@ export default function LandingPage() {
         <p className="text-lg text-secondary-text mb-8">
           Junte-se à lista VIP e receba acesso antecipado antes do lançamento oficial.
         </p>
-        <form 
-          onSubmit={(e) => handleSubscribe(e, emailCTA, setLoadingCTA, setMessageCTA, setEmailCTA)} 
-          className="flex flex-col sm:flex-row gap-3 justify-center w-full max-w-md mx-auto"
-        >
-          <input
-            type="email"
-            placeholder="Digite seu melhor e-mail..."
-            required
-            value={emailCTA}
-            onChange={(e) => setEmailCTA(e.target.value)}
-            className="flex-1 px-4 py-3 rounded-lg border border-alternate bg-primary-bg focus:outline-none focus:ring-2 focus:ring-primary"
-          />
-          <button
-            type="submit"
-            disabled={loadingCTA}
-            className="px-6 py-3 bg-primary text-info font-medium rounded-lg hover:opacity-90 transition-opacity shadow-md disabled:opacity-50"
-          >
-            {loadingCTA ? 'Enviando...' : 'Entrar na Lista VIP'}
-          </button>
-        </form>
-
-        {messageCTA && (
-          <p className={`mt-4 text-sm font-medium ${messageCTA.type === 'success' ? 'text-success' : 'text-error'}`}>
-            {messageCTA.text}
-          </p>
+        <WaitlistForm source="home_cta" variant="cta" />
+        {joinCopy && (
+          <p className="text-sm text-secondary-text mt-4">{joinCopy}</p>
         )}
-        <p className="text-xs text-secondary-text mt-4">{ctaJoinCopy}</p>
       </section>
 
       <Footer />
