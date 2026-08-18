@@ -5,15 +5,21 @@ import { supabase } from '../lib/supabase';
 
 export default function BlogCTA() {
   const [email, setEmail] = useState('');
+  const [consent, setConsent] = useState(false);
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('loading');
 
-    const { error } = await supabase
-      .from('waitlist')
-      .insert([{ email }]);
+    const { error } = await supabase.from('waitlist').insert([
+      {
+        email,
+        consent_marketing: consent,
+        consent_timestamp: new Date().toISOString(),
+        consent_source: 'blog_cta',
+      },
+    ]);
 
     if (error) {
       console.error('Erro ao salvar e-mail:', error);
@@ -21,6 +27,7 @@ export default function BlogCTA() {
     } else {
       setStatus('success');
       setEmail('');
+      setConsent(false);
     }
   };
 
@@ -63,11 +70,17 @@ export default function BlogCTA() {
           {status === 'loading' ? 'Enviando...' : 'Entrar na Lista VIP'}
         </button>
       </form>
-      
-      <p className="text-sm text-secondary-text mt-4">
-        Junte-se a outros viajantes. Sem spam, descadastre-se quando quiser.
-      </p>
-      
+
+      <label className="flex items-start gap-2 mt-4 text-xs text-secondary-text max-w-xl">
+        <input
+          type="checkbox"
+          checked={consent}
+          onChange={(e) => setConsent(e.target.checked)}
+          className="mt-0.5 accent-primary"
+        />
+        Quero receber novidades sobre o lançamento do Trix Travel por e-mail.
+      </label>
+
       {status === 'error' && (
         <p className="text-red-500 text-sm mt-4">Ops! Ocorreu um erro. Tente novamente.</p>
       )}
