@@ -33,23 +33,31 @@ export default function BlogCTA() {
 
   if (status === 'success') {
     return (
-      <div className="mt-16 py-12 border-t border-alternate text-left">
-        <h3 className="font-outfit text-3xl md:text-4xl font-bold text-primary-text mb-4">Malas prontas! ✈️</h3>
-        <p className="text-lg text-secondary-text">Seu e-mail foi adicionado à nossa lista VIP com sucesso. Fique de olho na sua caixa de entrada.</p>
+      <div className="mt-16 py-12 border-t border-neutro-300 text-left">
+        {/* Tinha um emoji de avião aqui, que é o mesmo que saiu do
+            app na varredura de 09/09 -- e emoji em produto é regra da
+            casa. A confirmação agora diz o que acontece a seguir, que é
+            o que a pessoa quer saber depois de dar o e-mail. */}
+        <h3 className="titulo-secao text-3xl text-navy-500 md:text-4xl mb-4">
+          Pronto.
+        </h3>
+        <p className="text-lg text-neutro-600">
+          A gente avisa por e-mail quando abrir a próxima leva do beta.
+        </p>
       </div>
     );
   }
 
   return (
-    <div className="mt-16 py-12 border-t border-alternate text-left">
-      <span className="text-tertiary font-semibold text-sm uppercase tracking-wider block mb-3">
-        Acesso Antecipado Exclusivo
+    <div className="mt-16 py-12 border-t border-neutro-300 text-left">
+      <span className="text-petroleo font-semibold text-sm uppercase tracking-wider block mb-3">
+        Beta fechado
       </span>
-      <h3 className="font-outfit text-4xl md:text-5xl font-bold text-primary-text mb-6 leading-tight">
-        Menos planilhas.<br />Mais malas prontas.
+      <h3 className="titulo-secao text-4xl md:text-5xl font-bold text-neutro-950 mb-6 leading-tight">
+        São 70 dias planejando<br />uma viagem de 15.
       </h3>
-      <p className="text-lg text-secondary-text mb-8 max-w-2xl">
-        Seu roteiro perfeito de 15 dias criado em segundos. Esqueça as horas perdidas pesquisando em dezenas de abas.
+      <p className="text-lg text-neutro-600 mb-8 max-w-2xl">
+        A Trix devolve esse tempo: roteiro dia a dia, com os lugares, os trajetos entre eles e o custo estimado de cada dia.
       </p>
 
       {/* O flex-row com items-stretch garante que o input e o botão tenham exatamente a mesma altura */}
@@ -57,26 +65,26 @@ export default function BlogCTA() {
         <input
           type="email"
           required
-          placeholder="Digite seu melhor e-mail..."
+          placeholder="seu@email.com"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="flex-1 bg-secondary-bg border border-alternate rounded-xl px-5 py-4 text-primary-text focus:outline-none focus:border-primary transition-colors placeholder:text-secondary-text"
+          className="flex-1 bg-areia border border-neutro-300 rounded-xl px-5 py-4 text-neutro-950 focus:outline-none focus:border-terracota-700 transition-colors placeholder:text-neutro-600"
         />
         <button
           type="submit"
           disabled={status === 'loading'}
-          className="bg-primary text-white font-medium rounded-xl px-8 py-4 hover:opacity-90 transition-opacity disabled:opacity-50 whitespace-nowrap"
+          className="bg-terracota-700 text-white font-medium rounded-xl px-8 py-4 hover:opacity-90 transition-opacity disabled:opacity-50 whitespace-nowrap"
         >
-          {status === 'loading' ? 'Enviando...' : 'Entrar na Lista VIP'}
+          {status === 'loading' ? 'Enviando…' : 'Quero avisar'}
         </button>
       </form>
 
-      <label className="flex items-start gap-2 mt-4 text-xs text-secondary-text max-w-xl">
+      <label className="flex items-start gap-2 mt-4 text-xs text-neutro-600 max-w-xl">
         <input
           type="checkbox"
           checked={consent}
           onChange={(e) => setConsent(e.target.checked)}
-          className="mt-0.5 accent-primary"
+          className="mt-0.5 accent-terracota-700"
         />
         Quero receber também conteúdo sobre viagens e outras novidades da Trix, além do aviso de lançamento.
       </label>

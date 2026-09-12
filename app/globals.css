@@ -1,22 +1,110 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
-@theme {
-  /* Suas cores oficiais do Trix Travel */
-  --color-primary: #304ffe;
-  --color-secondary: #00d4c5;
-  --color-tertiary: #ff5963;
-  --color-alternate: #e0e3e7;
-  --color-primary-text: #14181b;
-  --color-secondary-text: #57636c;
-  --color-primary-bg: #f1f4f8;
-  --color-secondary-bg: #ffffff;
-  --color-success: #249689;
-  --color-error: #ff5963;
-  --color-warning: #f9cf58;
-  --color-info: #ffffff;
+/* =====================================================================
+   A PALETA DO BRANDBOOK v2
 
-  /* Suas Fontes */
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-outfit: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+   O que estava aqui era a paleta revogada: Blue Trix (#304ffe), Teal
+   (#00d4c5) e Coral (#ff5963). O brandbook v2 fechou a Opção B --
+   navy, terracota, areia e petróleo -- e o azul-céu da categoria foi
+   abandonado por decisão estratégica. O site era o último lugar onde a
+   paleta antiga ainda estava no ar.
+
+   A tese que governa tudo: ORDEM SOBRE O CAOS. Autoridade operacional,
+   não inspiração. A referência é banco, seguro e aviação premium --
+   nunca agência de turismo.
+
+   Três disciplinas que é fácil quebrar sem perceber:
+
+     - TERRACOTA É AÇÃO, E SÓ AÇÃO. Em área grande fica gritante.
+     - NAVY É ESTRUTURA. Em excesso pesa numa ferramenta que deveria
+       parecer leve em viagem.
+     - PETRÓLEO É PROGRESSO E CATEGORIA, NUNCA AÇÃO.
+
+   Qualquer cor fora destas rampas é dívida técnica.
+   ===================================================================== */
+
+@theme {
+  /* --- navy: marca, estrutura, cabeçalho --- */
+  --color-navy-100: #e4e9f2;
+  --color-navy-300: #9aaac9;
+  --color-navy-500: #14213d;
+  --color-navy-700: #0d1729;
+  --color-navy-900: #070c16;
+
+  /* --- terracota: AÇÃO --- */
+  --color-terracota-100: #fbe4d6;
+  --color-terracota-300: #f0a579;
+  --color-terracota-500: #d9622b;
+  --color-terracota-700: #a84a1f;
+  --color-terracota-900: #6b2e12;
+
+  /* --- areia e neutros: fundo e texto --- */
+  --color-areia: #f5efe6;
+  --color-neutro-100: #f5f0e8;
+  --color-neutro-300: #d2cbbb;
+  --color-neutro-600: #5f5a4c;
+  --color-neutro-800: #332f27;
+  --color-neutro-950: #181612;
+
+  /* --- petróleo: progresso e categoria, nunca ação --- */
+  --color-petroleo: #3b6e66;
+
+  /* --- status, e ESTRITAMENTE status ---
+     Se "atenção" aparecer fora de um aviso real, o usuário aprende a
+     ignorar o sinal. Sucesso e erro vêm 2 a 4% mais escuros que a
+     rampa do brandbook porque, como TEXTO sobre areia, os originais
+     reprovam em WCAG AA por pouco -- e a diferença é invisível. */
+  --color-sucesso: #3d7a50;
+  --color-atencao: #d9a036;
+  --color-erro: #d02b1f;
+  --color-info: #287595;
+
+  /* =================================================================
+     TIPOGRAFIA
+
+     Archivo em título e interface; Source Sans 3 em corpo e texto
+     longo; DM Mono em horário, preço, distância e rótulo de seção.
+     Revoga Outfit + Inter, que era o par anterior.
+
+     A camada mono é o que faz a promessa do trajeto parecer
+     verificável -- o brandbook a chama de "acerto a preservar".
+     **Nunca em texto corrido.**
+     ================================================================= */
+  --font-sans: var(--font-source-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-titulo: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-dm-mono), ui-monospace, monospace;
+}
+
+/* Rolagem suave para as âncoras internas, respeitando quem pediu menos
+   movimento no sistema. */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Título de tela: 32-40px com -3% de entreletra, peso 600. Card e
+   botão: 16-24px com -2%. São as medidas do brandbook, e ficam aqui
+   para não serem redigitadas em cada `className`. */
+@utility titulo-hero {
+  font-family: var(--font-titulo);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+@utility titulo-secao {
+  font-family: var(--font-titulo);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* Rótulo de sinalização em caixa alta. Mono, +2% de entreletra -- é
+   "valor que se confere" e "rótulo de sinalização", os dois usos que o
+   protótipo da Lais dá à camada mono. */
+@utility rotulo-secao {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }

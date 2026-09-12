@@ -11,7 +11,7 @@ type Props = {
   params: Promise<{ slug: string }>;
 };
 
-// 2. A Mágica do SEO Dinâmico
+// 2. O SEO dinâmico de cada post
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const resolvedParams = await params;
   const slug = resolvedParams.slug;
@@ -24,24 +24,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     .single();
 
   if (!post) {
-    return { title: 'Post não encontrado | Trix Travel' };
+    return { title: 'Post não encontrado | Trix' };
   }
 
   // Se o post não tiver imagem de capa, usamos a imagem principal do site como fallback
-  const ogImage = post.image_url || 'https://trix.travel/og-image.png';
+  const ogImage = post.image_url || 'https://trix.travel/og-trix.png';
 
   return {
-    title: `${post.title} | Blog Trix Travel`,
-    description: `Leia o artigo "${post.title}" e descubra como otimizar suas viagens com a Trix Travel.`,
+    title: `${post.title} | Blog da Trix`,
+    description: `${post.title} — no blog da Trix.`,
     alternates: {
       canonical: `/blog/${slug}`,
     },
     openGraph: {
       title: post.title,
-      description: `Leia o artigo "${post.title}" no Blog da Trix Travel.`,
+      description: `${post.title} — no blog da Trix.`,
       url: `https://trix.travel/blog/${slug}`,
       type: 'article',
-      siteName: 'Trix Travel',
+      siteName: 'Trix',
       images: [
         {
           url: ogImage,
@@ -78,9 +78,9 @@ export default async function BlogPost({ params }: Props) {
   }
 
   return (
-    <div className="min-h-screen bg-secondary-bg text-primary-text font-sans py-20 px-6">
+    <div className="min-h-screen bg-areia text-neutro-950 font-sans py-20 px-6">
       <article className="max-w-3xl mx-auto">
-        <Link href="/blog" className="text-secondary-text hover:text-primary text-sm mb-8 inline-block font-medium">
+        <Link href="/blog" className="text-neutro-600 hover:text-terracota-700 text-sm mb-8 inline-block font-medium">
           ← Voltar para o Blog
         </Link>
         
@@ -97,15 +97,15 @@ export default async function BlogPost({ params }: Props) {
           </div>
         )}
         
-        <h1 className="font-outfit text-4xl md:text-5xl font-bold mb-6 leading-tight">
+        <h1 className="titulo-secao text-4xl md:text-5xl font-bold mb-6 leading-tight">
           {post.title}
         </h1>
         
-        <p className="text-sm text-secondary-text mb-12 pb-8 border-b border-alternate">
+        <p className="text-sm text-neutro-600 mb-12 pb-8 border-b border-neutro-300">
           Publicado em {new Date(post.created_at).toLocaleDateString('pt-BR')}
         </p>
 
-        <div className="prose prose-lg max-w-none text-secondary-text prose-headings:font-outfit prose-headings:text-primary-text prose-a:text-primary">
+        <div className="prose prose-lg max-w-none text-neutro-600 prose-headings:titulo-secao prose-headings:text-neutro-950 prose-a:text-terracota-700">
           <ReactMarkdown>{post.content}</ReactMarkdown>
         </div>
         

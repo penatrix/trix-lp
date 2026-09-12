@@ -1,90 +1,40 @@
-'use client';
-
 import React from 'react';
-import Image from 'next/image';
-import Footer from '../../components/Footer';
-import WaitlistForm from '../../components/WaitlistForm';
+import PaginaPilar from '../../components/PaginaPilar';
 
 export default function GeradorRoteiroPage() {
   return (
-    <div className="min-h-screen bg-secondary-bg text-primary-text font-sans">
-      {/* HEADER */}
-      <header className="w-full h-20 flex items-center justify-between px-6 max-w-6xl mx-auto">
-        <div className="flex items-center gap-2">
-          <Image
-            src="/logo-org-white-bg.jpeg"
-            alt="Trix Travel Logo"
-            width={48}
-            height={48}
-            className="w-12 h-12 rounded-md object-cover shadow-sm"
-          />
-          <span className="font-outfit font-semibold text-xl text-primary">Trix Travel</span>
-        </div>
-        <div className="block md:hidden">
-          <a
-            href="https://app.trix.travel"
-            className="text-sm font-medium text-secondary-text hover:text-primary transition-colors"
-          >
-            Já é Beta? Faça Login
-          </a>
-        </div>
-      </header>
-
-      {/* HERO */}
-      <section className="max-w-4xl mx-auto px-6 py-20">
-        <span className="text-tertiary font-semibold text-sm uppercase tracking-wider">
-          Planejador de Viagem com Inteligência Artificial
-        </span>
-        <h1 className="font-outfit text-4xl md:text-5xl font-bold leading-tight text-primary-text mt-4 mb-6">
-          O gerador de roteiro de viagem que pensa a logística de verdade.
-        </h1>
-        <p className="text-lg text-secondary-text max-w-2xl mb-8">
-          Não é uma lista de lugares bonitos. É um roteiro dia a dia calculado com deslocamento real, no seu ritmo, pronto em segundos.
-        </p>
-
-        <WaitlistForm source="gerador-de-roteiro-de-viagem-ia_hero" variant="hero" />
-      </section>
-
-      {/* CONTEUDO UNICO */}
-      <section className="max-w-4xl mx-auto px-6 py-16 border-t border-alternate">
-        <h2 className="font-outfit text-3xl md:text-4xl font-bold text-primary-text mb-4">
-          O que separa um gerador de roteiro de verdade de um chatbot genérico
-        </h2>
-        <p className="text-lg text-secondary-text mb-10 max-w-2xl">
-          Pedir &quot;monte um roteiro&quot; pra um chatbot qualquer devolve texto bonito. Não devolve um roteiro que funciona no mundo real.
-        </p>
-        <div className="space-y-8">
-          <div>
-            <h3 className="font-outfit text-xl font-semibold text-primary-text mb-2">Geolocalização de verdade, nunca inventada</h3>
-            <p className="text-secondary-text leading-relaxed">
-              O Trix nunca gera coordenadas por conta própria — ele devolve o nome exato do lugar, e quem resolve a localização é o Google Maps, aberto direto no seu celular. Sem endereço inventado.
-            </p>
-          </div>
-          <div>
-            <h3 className="font-outfit text-xl font-semibold text-primary-text mb-2">Validação de que o lugar está aberto</h3>
-            <p className="text-secondary-text leading-relaxed">
-              Sugestão de lugar fechado é o pior tipo de erro num roteiro de viagem. Cada sugestão passa por checagem de horário e status antes de chegar até você.
-            </p>
-          </div>
-          <div>
-            <h3 className="font-outfit text-xl font-semibold text-primary-text mb-2">Suas vibes, levadas ao pé da letra</h3>
-            <p className="text-secondary-text leading-relaxed">
-              Disse que quer ritmo de mochileiro? O roteiro reflete isso de verdade — sem reinterpretar sua preferência do jeito que o modelo &quot;acha&quot; que você quis dizer.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* BOTTOM CTA */}
-      <section className="max-w-4xl mx-auto px-6 py-24 text-center">
-        <h2 className="font-outfit text-3xl md:text-4xl font-bold mb-4 text-primary-text">Pronto para viajar melhor?</h2>
-        <p className="text-lg text-secondary-text mb-8">
-          Junte-se à lista VIP e receba acesso antecipado antes do lançamento oficial.
-        </p>
-        <WaitlistForm source="gerador-de-roteiro-de-viagem-ia_cta" variant="cta" />
-      </section>
-
-      <Footer />
-    </div>
+    <PaginaPilar
+      slug="gerador-de-roteiro-de-viagem-ia"
+      rotulo="Como funciona"
+      titulo="Um roteiro que aguenta o mundo real."
+      // Saiu o "pronto em segundos": promessa de tempo deprecia o valor
+      // percebido, e a dor a atacar é a pesquisa que o produto elimina.
+      resumo="Não é uma lista de lugares bonitos. É o dia a dia com o nome de cada lugar, o deslocamento entre eles e o custo estimado — no ritmo que você declarou."
+      secao="O que separa um roteiro de um texto bonito"
+      introSecao="Pedir “monte um roteiro” devolve parágrafos agradáveis. Não devolve um dia que funciona quando você está lá, com mala e horário."
+      blocos={[
+        {
+          titulo: 'A localização é do Google, não do modelo',
+          corpo:
+            'A Trix nunca gera coordenada por conta própria. Ela devolve o nome exato do lugar, e quem resolve a localização é o Google Maps, aberto direto no seu aparelho. Endereço inventado é o erro que não acontece aqui, e isso é decisão de arquitetura, não preferência.',
+        },
+        {
+          titulo: 'Lugar fechado é o pior erro possível',
+          corpo:
+            'Chegar e encontrar a porta trancada estraga o dia inteiro, não a próxima hora. Cada sugestão passa por checagem de horário e funcionamento antes de entrar no seu roteiro.',
+        },
+        {
+          titulo: 'A sua vibe, ao pé da letra',
+          corpo:
+            'Disse que quer ritmo de maratonista? O dia vem cheio. Nada de reinterpretar sua preferência pelo que o modelo acha que você quis dizer — termo de ritmo é lido literalmente.',
+        },
+        {
+          titulo: 'O custo diz de quem é',
+          corpo:
+            'Cada valor declara se é por pessoa ou do grupo todo, e o dia soma normalizado. Somar sem normalizar devolve um número que não é nem uma coisa nem outra.',
+        },
+      ]}
+      fecho="A Trix organiza, decide e explica o critério — a 2h15 de Dresden, combina com histórico e gastronomia. Nunca decide sem justificar."
+    />
   );
 }

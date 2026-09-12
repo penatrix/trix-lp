@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" xmlns:c2pa="http://c2pa.org/manifest">
+<title>Trix — ícone de app</title>
+<defs><clipPath id="t"><rect x="0" y="0" width="100" height="50"></rect></clipPath></defs>
+<rect width="512" height="512" rx="114" fill="#14213D"></rect>
+<g transform="translate(115.2 115.2) scale(2.816)">
+<path d="M50 9L91 50L50 91L9 50Z" fill="#F5EFE6" stroke="#F5EFE6" stroke-width="11" stroke-linejoin="round"></path>
+<g clip-path="url(#t)"><path d="M50 9L91 50L50 91L9 50Z" fill="#D9622B" stroke="#D9622B" stroke-width="11" stroke-linejoin="round"></path></g>
+</g></svg>

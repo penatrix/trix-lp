@@ -1,229 +1,144 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import Image from 'next/image'; // <-- ADICIONE ESTA LINHA
-import { supabase } from '../lib/supabase';
+import Cabecalho from '../components/Cabecalho';
+import ChamadaFinal from '../components/ChamadaFinal';
+import Comparativo from '../components/Comparativo';
 import Footer from '../components/Footer';
+import Recursos from '../components/Recursos';
 import WaitlistForm from '../components/WaitlistForm';
+import { supabase } from '../lib/supabase';
 
 export default function LandingPage() {
-  // Contador real de inscritos na lista VIP
   const [waitlistCount, setWaitlistCount] = useState<number | null>(null);
 
   useEffect(() => {
-    supabase
-      .rpc('waitlist_count')
-      .then(({ data, error }) => {
-        if (error) {
-          console.error('Erro ao buscar contador da waitlist:', error);
-          return;
-        }
-        if (typeof data === 'number') setWaitlistCount(data);
-      });
+    supabase.rpc('waitlist_count').then(({ data, error }) => {
+      if (error) {
+        console.error('Erro ao buscar contador da waitlist:', error);
+        return;
+      }
+      if (typeof data === 'number') setWaitlistCount(data);
+    });
   }, []);
 
-  const joinCopy =
-    waitlistCount !== null && waitlistCount > 0
-      ? `Junte-se a ${waitlistCount} viajantes.`
-      : null;
-
   return (
-    <div className="min-h-screen bg-secondary-bg text-primary-text font-sans">
-      {/* HEADER */}
-      <header className="w-full h-20 flex items-center justify-between px-6 max-w-6xl mx-auto">
-        <div className="flex items-center gap-2">
-        <Image 
-          src="/logo-org-white-bg.jpeg" 
-          alt="Trix Travel Logo" 
-          width={48} 
-          height={48} 
-          className="w-12 h-12 rounded-md object-cover shadow-sm" 
-        />
-        <span className="font-outfit font-semibold text-xl text-primary">Trix Travel</span>
-        </div>
-        <div className="block md:hidden">
-          <a 
-            href="https://app.trix.travel" 
-            className="text-sm font-medium text-secondary-text hover:text-primary transition-colors"
-          >
-            Já é Beta? Faça Login
-          </a>
-        </div>
-      </header>
+    <div className="min-h-screen bg-areia font-sans text-neutro-800">
+      <Cabecalho />
 
-      {/* HERO SECTION */}
-      <section className="max-w-6xl mx-auto px-6 py-20 flex flex-col md:flex-row items-center gap-12">
+      {/* =================================================================
+          HERO
+
+          A promessa perdeu o número de segundos, e isso é decisão do
+          Paulo: "gerado em segundos" deprecia o valor percebido -- se
+          sai rápido, parece que vale pouco. A dor a atacar é a oposta,
+          e é o tempo de pesquisa que o produto elimina.
+
+          "Menos planilhas. Mais malas prontas." saiu pelo mesmo motivo
+          que o resto: é simpática antes de ser direta, e a voz da casa
+          manda a frase começar pela informação.
+          ================================================================= */}
+      <section className="mx-auto flex max-w-6xl flex-col items-center gap-12 px-6 py-20 md:flex-row">
         <div className="flex-1 space-y-6">
-          <span className="text-tertiary font-semibold text-sm uppercase tracking-wider">
-            Acesso Antecipado Exclusivo
-          </span>
-          <h1 className="font-outfit text-5xl md:text-6xl font-bold leading-tight text-primary-text">
-            Menos planilhas.<br />Mais malas prontas.
+          <p className="rotulo-secao text-petroleo">Beta fechado</p>
+
+          <h1 className="titulo-hero text-4xl leading-[1.08] text-navy-500 md:text-6xl">
+            São 70 dias planejando
+            <br />
+            uma viagem de 15.
           </h1>
-          <p className="text-lg text-secondary-text max-w-lg">
-            Seu roteiro perfeito de 15 dias criado em segundos. Esqueça as horas perdidas pesquisando em dezenas de abas.
+
+          <p className="max-w-lg text-lg leading-relaxed text-neutro-600">
+            A Trix devolve esse tempo: roteiro dia a dia, com os lugares,
+            os trajetos entre eles e o custo estimado de cada dia.
           </p>
-          
-          {joinCopy && (
-            <p className="text-sm text-secondary-text">{joinCopy}</p>
-          )}
 
           <WaitlistForm source="home_hero" variant="hero" />
+
+          {/* O número só entra quando existe. Sem dado, corta-se a
+              frase -- e "junte-se a 0 viajantes" seria pior que
+              silêncio. */}
+          {waitlistCount !== null && waitlistCount > 0 && (
+            <p className="text-sm text-neutro-600">
+              <span className="font-mono">{waitlistCount}</span> viajantes já
+              estão na fila.
+            </p>
+          )}
         </div>
+
         <div className="flex-1">
-           {/* VÍDEO 1: Roteiro Complexo - LIMPO, sem bordas! */}
-           <video 
-            autoPlay 
-            loop 
-            muted 
-            playsInline 
-            className="w-full max-w-sm mx-auto mix-blend-multiply outline-none border-none"
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            aria-label="O roteiro dia a dia, na tela do aplicativo"
+            // `mix-blend-multiply` volta, e não é enfeite: os dois
+            // vídeos têm fundo BRANCO. Na página branca antiga isso não
+            // aparecia; sobre areia, sem o blend, cada um viraria um
+            // retângulo branco no meio da página. Multiply sobre areia
+            // apaga o branco e preserva o resto.
+            //
+            // E a moldura reserva a altura: sem `aspect-ratio` o
+            // elemento colapsa até o vídeo carregar, e o hero abre com
+            // metade vazia em conexão lenta.
+            className="mx-auto w-full max-w-sm mix-blend-multiply"
+            style={{ aspectRatio: '9 / 16' }}
           >
             <source src="/demo-roteiro.mp4" type="video/mp4" />
           </video>
         </div>
       </section>
 
-      {/* COMPARAÇÃO: DOR VS SOLUÇÃO */}
-      <section className="max-w-4xl mx-auto px-6 py-16">
-        <div className="text-center mb-12">
-          <h2 className="font-outfit text-3xl font-bold text-primary-text mb-4">Planejar viagens não precisa ser um trabalho.</h2>
-          <p className="text-secondary-text">Veja a diferença entre o método tradicional e a inteligência do Trix.</p>
-        </div>
+      <Comparativo />
+      <Recursos />
 
-        <div className="grid md:grid-cols-2 gap-6">
-          {/* O Jeito Antigo */}
-          <div className="bg-primary-bg p-8 rounded-2xl border border-alternate opacity-80">
-            <h3 className="font-outfit text-xl font-semibold text-primary-text mb-6 flex items-center gap-2">
-              <span className="text-tertiary">✕</span> O Jeito Antigo
-            </h3>
-            <ul className="space-y-4 text-secondary-text">
-              <li className="flex items-start gap-3">
-                <span className="mt-1 text-tertiary opacity-70">▪</span>
-                Dezenas de abas abertas no navegador.
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="mt-1 text-tertiary opacity-70">▪</span>
-                Planilhas confusas e links perdidos no WhatsApp.
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="mt-1 text-tertiary opacity-70">▪</span>
-                Medo constante de errar a logística ou a distância.
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="mt-1 text-tertiary opacity-70">▪</span>
-                Horas de pesquisa para cada dia de viagem.
-              </li>
-            </ul>
-          </div>
+      {/* =================================================================
+          DESCOBERTA
 
-          {/* Com o Trix */}
-          <div className="bg-secondary-bg p-8 rounded-2xl border-2 border-primary shadow-lg relative">
-            <div className="absolute -top-3 right-6 bg-primary text-info text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
-              Mágico
-            </div>
-            <h3 className="font-outfit text-xl font-semibold text-primary-text mb-6 flex items-center gap-2">
-              <span className="text-primary">✓</span> Com o Trix
-            </h3>
-            <ul className="space-y-4 text-secondary-text">
-              <li className="flex items-start gap-3">
-                <span className="mt-1 text-primary">▪</span>
-                Tudo centralizado em uma única interface limpa.
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="mt-1 text-primary">▪</span>
-                Roteiros hiper-personalizados baseados no seu ritmo.
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="mt-1 text-primary">▪</span>
-                IA que calcula deslocamentos e logística real.
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="mt-1 text-primary">▪</span>
-                Pronto para embarcar em menos de 30 segundos.
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* FEATURES SECTION */}
-      <section className="bg-primary-bg py-24">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="font-outfit text-3xl md:text-4xl font-bold text-center mb-16 text-primary-text">
-            Por que o Trix?
-          </h2>
-          <div className="grid md:grid-cols-3 gap-12">
-            <div className="bg-secondary-bg p-8 rounded-xl shadow-md border border-alternate">
-              <div className="w-12 h-12 bg-secondary/10 text-secondary rounded-lg flex items-center justify-center mb-6">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
-              </div>
-              <h3 className="font-outfit text-xl font-semibold mb-3 text-primary-text">Logística à prova de falhas.</h3>
-              <p className="text-secondary-text leading-relaxed">
-                O Trix não apenas cospe pontos turísticos. Ele entende a logística real para o mundo real, otimizando seu trajeto.
-              </p>
-            </div>
-            <div className="bg-secondary-bg p-8 rounded-xl shadow-md border border-alternate">
-              <div className="w-12 h-12 bg-secondary/10 text-secondary rounded-lg flex items-center justify-center mb-6">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
-              </div>
-              <h3 className="font-outfit text-xl font-semibold mb-3 text-primary-text">O seu ritmo, as suas regras.</h3>
-              <p className="text-secondary-text leading-relaxed">
-                De uma viagem intensa de mochileiro a um passeio relaxante com a família. O roteiro se adapta à sua vibe.
-              </p>
-            </div>
-            <div className="bg-secondary-bg p-8 rounded-xl shadow-md border border-alternate">
-              <div className="w-12 h-12 bg-secondary/10 text-secondary rounded-lg flex items-center justify-center mb-6">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-              </div>
-              <h3 className="font-outfit text-xl font-semibold mb-3 text-primary-text">O fim das planilhas.</h3>
-              <p className="text-secondary-text leading-relaxed">
-                Diga adeus às dezenas de abas abertas e planilhas complexas. Gerencie tudo em uma única interface inteligente.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* DISCOVERY SECTION (VÍDEO 2) */}
-      <section className="max-w-6xl mx-auto px-6 py-24 flex flex-col md:flex-row-reverse items-center gap-12 border-b border-alternate">
+          Era "Dê match com seu destino" e "descubra sua próxima aventura
+          de forma viciante". "Viciante" é hype, e o resto era promessa
+          sem dado nenhum. O que o módulo faz de concreto é partir da
+          vibe e da duração para sugerir cidade -- e é isso que está
+          escrito agora.
+          ================================================================= */}
+      <section className="mx-auto flex max-w-6xl flex-col items-center gap-12 border-b border-neutro-300/60 px-6 py-24 md:flex-row-reverse">
         <div className="flex-1 space-y-6">
-          <span className="text-secondary font-semibold text-sm uppercase tracking-wider">
-            Módulo Discovery
-          </span>
-          <h2 className="font-outfit text-3xl md:text-4xl font-bold text-primary-text">
-            Não sabe para onde ir? <br /> Dê match com seu destino.
+          <p className="rotulo-secao text-petroleo">Descoberta</p>
+          <h2 className="titulo-secao text-3xl text-navy-500 md:text-4xl">
+            Ainda não sabe para onde ir?
           </h2>
-          <p className="text-lg text-secondary-text max-w-lg">
-            Deixe as buscas genéricas para trás. Nosso matchmaker de viagens cruza as experiências que você mais ama com destinos no mundo todo. Descubra sua próxima aventura de forma viciante.
+          <p className="max-w-lg text-lg leading-relaxed text-neutro-600">
+            Diga a vibe e quantos dias você tem. A Trix sugere as cidades
+            que cabem nesse tempo e explica por que cada uma entrou — o
+            destino é o resultado da conversa, não o começo dela.
           </p>
         </div>
         <div className="flex-1">
-           {/* VÍDEO 2: Módulo Discovery - LIMPO, sem bordas! */}
-           <video 
-              autoPlay 
-              loop 
-              muted 
-              playsInline 
-              className="w-full max-w-sm mx-auto mix-blend-multiply outline-none border-none"
-            >
-              <source src="/demo-discovery.mp4" type="video/mp4" />
-            </video>
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            aria-label="A sugestão de destinos, na tela do aplicativo"
+            // `mix-blend-multiply` volta, e não é enfeite: os dois
+            // vídeos têm fundo BRANCO. Na página branca antiga isso não
+            // aparecia; sobre areia, sem o blend, cada um viraria um
+            // retângulo branco no meio da página. Multiply sobre areia
+            // apaga o branco e preserva o resto.
+            //
+            // E a moldura reserva a altura: sem `aspect-ratio` o
+            // elemento colapsa até o vídeo carregar, e o hero abre com
+            // metade vazia em conexão lenta.
+            className="mx-auto w-full max-w-sm mix-blend-multiply"
+            style={{ aspectRatio: '9 / 16' }}
+          >
+            <source src="/demo-discovery.mp4" type="video/mp4" />
+          </video>
         </div>
       </section>
 
-      {/* BOTTOM CTA */}
-      <section className="max-w-4xl mx-auto px-6 py-24 text-center">
-        <h2 className="font-outfit text-3xl md:text-4xl font-bold mb-4 text-primary-text">Pronto para viajar melhor?</h2>
-        <p className="text-lg text-secondary-text mb-8">
-          Junte-se à lista VIP e receba acesso antecipado antes do lançamento oficial.
-        </p>
-        <WaitlistForm source="home_cta" variant="cta" />
-        {joinCopy && (
-          <p className="text-sm text-secondary-text mt-4">{joinCopy}</p>
-        )}
-      </section>
-
+      <ChamadaFinal source="home_cta" />
       <Footer />
     </div>
   );

@@ -6,8 +6,8 @@ export const revalidate = 3600;
 
 // SEO estático para a página principal do Blog
 export const metadata = {
-  title: 'Blog | Trix Travel',
-  description: 'Dicas de viagem, hacks de logística e novidades do Trix Travel.',
+  title: 'Blog | Trix',
+  description: 'Como decidir base, ritmo, deslocamento e orçamento de uma viagem — e o que a Trix resolve por você.',
   alternates: {
     canonical: '/blog',
   },
@@ -26,18 +26,18 @@ export default async function BlogIndex() {
   }
 
   return (
-    <div className="min-h-screen bg-secondary-bg text-primary-text font-sans py-20 px-6">
+    <div className="min-h-screen bg-areia text-neutro-950 font-sans py-20 px-6">
       <div className="max-w-5xl mx-auto">
-        <Link href="/" className="text-secondary-text hover:text-primary text-sm mb-8 inline-block">
-          ← Voltar para a Home
+        <Link href="/" className="text-neutro-600 hover:text-terracota-700 text-sm mb-8 inline-block">
+          ← Voltar
         </Link>
         
-        <h1 className="font-outfit text-5xl font-bold mb-12">Nosso Blog</h1>
+        <h1 className="titulo-secao text-5xl font-bold mb-12">Blog</h1>
         
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {posts?.map((post) => (
             <Link href={`/blog/${post.slug}`} key={post.id} className="block group">
-              <div className="bg-primary-bg rounded-2xl overflow-hidden border border-alternate hover:border-primary transition-all shadow-sm h-full flex flex-col">
+              <div className="bg-neutro-100 rounded-2xl overflow-hidden border border-neutro-300 hover:border-navy-500 transition-all shadow-sm h-full flex flex-col">
                 {post.image_url ? (
                   <div className="relative w-full h-48">
                     <Image
@@ -49,18 +49,18 @@ export default async function BlogIndex() {
                     />
                   </div>
                 ) : (
-                  <div className="w-full h-48 bg-alternate flex items-center justify-center text-secondary-text">
+                  <div className="w-full h-48 bg-neutro-100 flex items-center justify-center text-neutro-600">
                     Sem imagem
                   </div>
                 )}
                 <div className="p-6 flex flex-col flex-grow">
-                  <p className="text-xs text-secondary-text mb-2 font-medium">
+                  <p className="text-xs text-neutro-600 mb-2 font-medium">
                     {new Date(post.created_at).toLocaleDateString('pt-BR')}
                   </p>
-                  <h2 className="font-outfit text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
+                  <h2 className="titulo-secao text-xl font-semibold mb-3 group-hover:text-terracota-700 transition-colors">
                     {post.title}
                   </h2>
-                  <p className="text-primary text-sm mt-auto font-medium">Ler artigo →</p>
+                  <p className="text-terracota-700 text-sm mt-auto font-medium">Ler artigo →</p>
                 </div>
               </div>
             </Link>
