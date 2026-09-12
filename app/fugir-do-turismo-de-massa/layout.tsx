@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Como Fugir do Turismo de Massa | Trix Travel',
-  description: 'Fugir do turismo de massa não é sobre lugar secreto — é sobre não perder seu tempo de viagem em fila pra ver o que todo mundo já viu numa foto.',
+  title: 'Como fugir do turismo de massa | Trix',
+  description: 'Não é caçar lugar secreto. É não gastar metade da viagem numa fila para ver o que todo mundo já viu na mesma foto.',
   alternates: {
     canonical: '/fugir-do-turismo-de-massa',
   },

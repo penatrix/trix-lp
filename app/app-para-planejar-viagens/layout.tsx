@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'O melhor App para Planejar Viagens | Trix Travel',
-  description: 'Substitua planilhas e dezenas de abas abertas pelo app inteligente que organiza seu roteiro e logística automaticamente.',
+  title: 'App para planejar viagem: o que a planilha não faz | Trix',
+  description: 'Planilha guarda o que você já decidiu. A Trix pesquisa, decide e mostra o critério: roteiro dia a dia, com trajeto e custo estimado.',
   alternates: {
     canonical: '/app-para-planejar-viagens',
   },
