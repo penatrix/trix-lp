@@ -7,7 +7,7 @@ export default function Politica() {
     <div className="max-w-4xl mx-auto px-6 py-20 font-sans text-neutro-950">
       <main>
         <h1 className="titulo-secao text-4xl md:text-5xl font-bold mb-2 text-neutro-950">Política de Privacidade</h1>
-        <p className="text-sm text-neutro-600 mb-10">Versão 1.0 — vigente a partir de 18 de agosto de 2026</p>
+        <p className="text-sm text-neutro-600 mb-10">Versão 1.1 — vigente a partir de 22 de outubro de 2026</p>
 
         <div className="space-y-4 text-sm md:text-base leading-relaxed mb-10">
           <p className="text-neutro-600">
@@ -319,6 +319,12 @@ export default function Politica() {
                       <td className="border border-neutro-300 px-4 py-2">EUA</td>
                     </tr>
                     <tr>
+                      <td className="border border-neutro-300 px-4 py-2">Mixpanel</td>
+                      <td className="border border-neutro-300 px-4 py-2">Análise de uso do aplicativo</td>
+                      <td className="border border-neutro-300 px-4 py-2">Eventos de uso e identificadores técnicos (ver Seção 7)</td>
+                      <td className="border border-neutro-300 px-4 py-2">União Europeia</td>
+                    </tr>
+                    <tr>
                       <td className="border border-neutro-300 px-4 py-2">Loops</td>
                       <td className="border border-neutro-300 px-4 py-2">Envio de e-mails de marketing</td>
                       <td className="border border-neutro-300 px-4 py-2">E-mail e primeiro nome, apenas com consentimento</td>
@@ -349,7 +355,7 @@ export default function Politica() {
               nossos servidores ficam nos Estados Unidos. Isso é normal e permitido, com as garantias adequadas.
             </LegalResumo>
             <div className="space-y-3 text-neutro-600">
-              <p>Nossa infraestrutura opera em servidores localizados nos <strong className="text-neutro-950 font-semibold">Estados Unidos</strong>, e os fornecedores listados na Seção 5 processam dados fora do Brasil.</p>
+              <p>Nossa infraestrutura opera em servidores localizados nos <strong className="text-neutro-950 font-semibold">Estados Unidos</strong>, com exceção do <strong className="text-neutro-950 font-semibold">Mixpanel</strong>, cujos dados ficam na <strong className="text-neutro-950 font-semibold">União Europeia</strong>. Todos os fornecedores listados na Seção 5 processam dados fora do Brasil.</p>
               <p>Essas transferências são realizadas nos termos dos arts. 33 a 36 da LGPD, com base em <strong className="text-neutro-950 font-semibold">cláusulas contratuais específicas de proteção de dados firmadas com cada fornecedor</strong>, que impõem padrão de proteção compatível com a legislação brasileira.</p>
               <p>Você pode solicitar informações sobre as garantias adotadas em <a href="mailto:privacidade@trix.travel" className="text-terracota-700 hover:underline">privacidade@trix.travel</a>.</p>
             </div>
@@ -358,12 +364,15 @@ export default function Politica() {
           <section className="pt-10 border-t border-neutro-300">
             <h2 className="titulo-secao text-2xl font-bold text-neutro-950 mb-3">7. Cookies e ferramentas de análise</h2>
             <LegalResumo>
-              o site usa Google Analytics. Você pode recusar. O aplicativo não usa rastreadores de terceiros.
+              o site usa Google Analytics e o aplicativo usa Mixpanel, os dois só para medir uso. No site você pode recusar; no aplicativo, pode se opor por e-mail. Nenhum dos dois serve para publicidade.
             </LegalResumo>
             <div className="space-y-3 text-neutro-600">
               <p><strong className="text-neutro-950 font-semibold">7.1. No site (trix.travel).</strong> Utilizamos cookies estritamente necessários ao funcionamento e, mediante seu consentimento, o <strong className="text-neutro-950 font-semibold">Google Analytics</strong> para entender de forma agregada como as pessoas encontram e navegam pelo site.</p>
               <p><strong className="text-neutro-950 font-semibold">7.2.</strong> Ao acessar o site pela primeira vez, você verá um aviso permitindo <strong className="text-neutro-950 font-semibold">aceitar ou recusar</strong> os cookies de análise. Recusar não prejudica o uso do site. Você pode alterar sua escolha a qualquer momento no rodapé.</p>
-              <p><strong className="text-neutro-950 font-semibold">7.3. No aplicativo.</strong> Não utilizamos SDKs de publicidade, pixels de redes sociais ou rastreadores de terceiros. As métricas de uso do aplicativo são apuradas internamente, a partir do nosso próprio banco de dados.</p>
+              <p><strong className="text-neutro-950 font-semibold">7.3. No aplicativo.</strong> Não utilizamos SDKs de publicidade, pixels de redes sociais nem qualquer rastreamento para fins de anúncio. Utilizamos o <strong className="text-neutro-950 font-semibold">Mixpanel</strong> para entender, de forma agregada, como as pessoas percorrem o aplicativo: que etapas concluem e onde desistem.</p>
+              <p><strong className="text-neutro-950 font-semibold">7.3.1. O que é enviado ao Mixpanel.</strong> Eventos de uso — abrir o aplicativo, concluir uma etapa, pedir um roteiro, chegar ao cadastro — e identificadores técnicos: um identificador do aparelho gerado por nós e, depois do login, o identificador da sua conta. <strong className="text-neutro-950 font-semibold">Não são enviados o conteúdo dos seus roteiros, os textos que você escreve, seu nome, seu e-mail nem qualquer dado de cadastro.</strong> Os dados ficam em servidores na União Europeia.</p>
+              <p><strong className="text-neutro-950 font-semibold">7.3.2. Parte das métricas continua sendo apurada internamente.</strong> Volume de roteiros, custo de processamento e uso das funcionalidades saem do nosso próprio banco de dados, sem passar por terceiros. O Mixpanel cobre o que o banco não enxerga: o caminho percorrido antes de o roteiro existir.</p>
+              <p><strong className="text-neutro-950 font-semibold">7.3.3.</strong> O aplicativo não apresenta aviso de consentimento para essa medição, que se apoia em <strong className="text-neutro-950 font-semibold">legítimo interesse</strong> (art. 7º, IX). Você pode se opor a qualquer momento escrevendo para <a href="mailto:privacidade@trix.travel" className="text-terracota-700 hover:underline">privacidade@trix.travel</a>, e nesse caso apagamos seus registros de uso e deixamos de coletá-los.</p>
               <p><strong className="text-neutro-950 font-semibold">7.4.</strong> Não realizamos rastreamento entre aplicativos ou sites de terceiros e não vendemos dados para fins publicitários.</p>
             </div>
           </section>
@@ -541,7 +550,7 @@ export default function Politica() {
         </div>
 
         <p className="text-xs text-neutro-600 mt-12 pt-6 border-t border-neutro-300">
-          Documento gerado em 18 de agosto de 2026. Versão 1.0.
+          Documento atualizado em 22 de setembro de 2026. Versão 1.1.
         </p>
       </main>
 
