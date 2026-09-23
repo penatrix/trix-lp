@@ -67,7 +67,7 @@ export default function Politica() {
                       </tr>
                       <tr>
                         <td className="border border-neutro-300 px-4 py-2">Perfil (opcional)</td>
-                        <td className="border border-neutro-300 px-4 py-2">Primeiro nome, foto de perfil, data de nascimento, gênero, cidade de origem</td>
+                        <td className="border border-neutro-300 px-4 py-2">Primeiro nome, telefone, foto de perfil, data de nascimento, gênero, cidade de origem</td>
                       </tr>
                       <tr>
                         <td className="border border-neutro-300 px-4 py-2">Preferências de viagem</td>
@@ -192,6 +192,16 @@ export default function Politica() {
                       <td className="border border-neutro-300 px-4 py-2">Execução de contrato — art. 7º, V</td>
                     </tr>
                     <tr>
+                      <td className="border border-neutro-300 px-4 py-2">Avisar sobre a sua conta e o seu roteiro</td>
+                      <td className="border border-neutro-300 px-4 py-2">E-mail, telefone</td>
+                      <td className="border border-neutro-300 px-4 py-2">Execução de contrato — art. 7º, V</td>
+                    </tr>
+                    <tr>
+                      <td className="border border-neutro-300 px-4 py-2">Vincular a conta a um telefone, como fator de segurança</td>
+                      <td className="border border-neutro-300 px-4 py-2">Telefone</td>
+                      <td className="border border-neutro-300 px-4 py-2">Legítimo interesse — art. 7º, IX</td>
+                    </tr>
+                    <tr>
                       <td className="border border-neutro-300 px-4 py-2">Prevenir fraude, abuso e uso indevido de promoções</td>
                       <td className="border border-neutro-300 px-4 py-2">Registros de acesso, dados de uso</td>
                       <td className="border border-neutro-300 px-4 py-2">Legítimo interesse — art. 7º, IX</td>
@@ -236,6 +246,7 @@ export default function Politica() {
               </div>
               <p><strong className="text-neutro-950 font-semibold">Sobre o legítimo interesse:</strong> avaliamos, em cada caso, se o benefício é proporcional e se suas expectativas legítimas são respeitadas. Você pode se opor a qualquer tratamento fundado em legítimo interesse escrevendo para <a href="mailto:privacidade@trix.travel" className="text-terracota-700 hover:underline">privacidade@trix.travel</a>.</p>
               <p><strong className="text-neutro-950 font-semibold">Comunicações operacionais</strong> — confirmação de conta, redefinição de senha, aviso de mudança nos Termos, recibo — não são marketing e são enviadas independentemente de consentimento, porque são necessárias ao serviço.</p>
+              <p><strong className="text-neutro-950 font-semibold">Sobre o telefone:</strong> informá-lo é opcional e a conta funciona sem ele. Usamos o número para avisos sobre a sua conta e o seu roteiro e como fator de segurança, vinculando a conta a um telefone. <strong className="text-neutro-950 font-semibold">Não enviamos marketing por telefone, SMS ou mensageiro sem a sua autorização expressa</strong>, e você pode apagar o número a qualquer momento na edição de perfil.</p>
             </div>
           </section>
 
