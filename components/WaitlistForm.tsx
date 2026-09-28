@@ -49,7 +49,10 @@ export default function WaitlistForm({
         // põe a marca no masculino, que a regra da casa não admite.
         // Aqui a confirmação diz o que acontece a seguir, que é o que a
         // pessoa quer saber.
-        text: 'Pronto. A gente avisa por e-mail quando abrir a próxima leva.',
+        //
+        // "Quando abrir a próxima leva" saiu em 28/09, com o beta aberto:
+        // o que a lista avisa agora é a chegada do app às lojas.
+        text: 'Pronto. A gente avisa por e-mail quando o app chegar às lojas.',
         type: 'success',
       });
       setEmail('');

@@ -40,8 +40,6 @@ export default function LandingPage() {
           ================================================================= */}
       <section className="mx-auto flex max-w-6xl flex-col items-center gap-12 px-6 py-20 md:flex-row">
         <div className="flex-1 space-y-6">
-          <p className="rotulo-secao text-petroleo">Beta fechado</p>
-
           <h1 className="titulo-hero text-4xl leading-[1.08] text-navy-500 md:text-6xl">
             São 70 dias planejando
             <br />
@@ -53,7 +51,26 @@ export default function LandingPage() {
             os trajetos entre eles e o custo estimado de cada dia.
           </p>
 
-          <WaitlistForm source="home_hero" variant="hero" />
+          {/* O beta abriu em 28/09, e a entrada principal passou a ser o
+              app. A lista de e-mail continua, mas como segunda opção: o
+              aviso de quando o app chegar às lojas.
+
+              Era "Beta fechado" em cima e só a lista de espera aqui. Além
+              de ter ficado falso, era isso que a verificação de marca do
+              Google lia como página "protegida por login". */}
+          <a
+            href="https://app.trix.travel"
+            className="titulo-secao inline-block rounded-2xl bg-terracota-700 px-6 py-3 text-base text-white transition-colors hover:bg-terracota-900"
+          >
+            Gerar meu roteiro
+          </a>
+
+          <div className="space-y-3 pt-2">
+            <p className="text-sm text-neutro-600">
+              Quer saber quando o app chegar às lojas?
+            </p>
+            <WaitlistForm source="home_hero" variant="hero" />
+          </div>
 
           {/* O número só entra quando existe. Sem dado, corta-se a
               frase -- e "junte-se a 0 viajantes" seria pior que
@@ -61,7 +78,7 @@ export default function LandingPage() {
           {waitlistCount !== null && waitlistCount > 0 && (
             <p className="text-sm text-neutro-600">
               <span className="font-mono">{waitlistCount}</span> viajantes já
-              estão na fila.
+              pediram o aviso.
             </p>
           )}
         </div>
