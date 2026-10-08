@@ -29,6 +29,12 @@ export default function Footer() {
           >
             Política de Privacidade
           </a>
+          <a
+            href="/excluir-conta"
+            className="transition-colors hover:text-terracota-700"
+          >
+            Excluir conta
+          </a>
           <button
             type="button"
             onClick={reviewCookies}
