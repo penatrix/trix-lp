@@ -67,7 +67,7 @@ export default function Politica() {
                       </tr>
                       <tr>
                         <td className="border border-neutro-300 px-4 py-2">Perfil (opcional)</td>
-                        <td className="border border-neutro-300 px-4 py-2">Primeiro nome, telefone, foto de perfil, data de nascimento, gênero, cidade de origem</td>
+                        <td className="border border-neutro-300 px-4 py-2">Primeiro nome, telefone, avatar escolhido entre ilustrações do próprio aplicativo, data de nascimento, gênero, cidade de origem</td>
                       </tr>
                       <tr>
                         <td className="border border-neutro-300 px-4 py-2">Preferências de viagem</td>
@@ -336,6 +336,12 @@ export default function Politica() {
                       <td className="border border-neutro-300 px-4 py-2">União Europeia</td>
                     </tr>
                     <tr>
+                      <td className="border border-neutro-300 px-4 py-2">Unsplash</td>
+                      <td className="border border-neutro-300 px-4 py-2">Fotos dos destinos e dos lugares do roteiro</td>
+                      <td className="border border-neutro-300 px-4 py-2">Endereço IP e dados técnicos do aparelho, quando a foto é carregada; nenhum dado de cadastro</td>
+                      <td className="border border-neutro-300 px-4 py-2">EUA</td>
+                    </tr>
+                    <tr>
                       <td className="border border-neutro-300 px-4 py-2">Loops</td>
                       <td className="border border-neutro-300 px-4 py-2">Envio de e-mails de marketing</td>
                       <td className="border border-neutro-300 px-4 py-2">E-mail e primeiro nome, apenas com consentimento</td>
@@ -375,7 +381,7 @@ export default function Politica() {
           <section className="pt-10 border-t border-neutro-300">
             <h2 className="titulo-secao text-2xl font-bold text-neutro-950 mb-3">7. Cookies e ferramentas de análise</h2>
             <LegalResumo>
-              o site usa Google Analytics e o aplicativo usa Mixpanel, os dois só para medir uso. No site você pode recusar; no aplicativo, pode se opor por e-mail. Nenhum dos dois serve para publicidade.
+              o site usa Google Analytics e o aplicativo usa Mixpanel, os dois só para medir uso. Nos dois você pode recusar: no site, pelo aviso de cookies; no aplicativo, pelo aviso do primeiro acesso ou no Perfil. Nenhum dos dois serve para publicidade.
             </LegalResumo>
             <div className="space-y-3 text-neutro-600">
               <p><strong className="text-neutro-950 font-semibold">7.1. No site (trix.travel).</strong> Utilizamos cookies estritamente necessários ao funcionamento e, mediante seu consentimento, o <strong className="text-neutro-950 font-semibold">Google Analytics</strong> para entender de forma agregada como as pessoas encontram e navegam pelo site.</p>
@@ -383,7 +389,8 @@ export default function Politica() {
               <p><strong className="text-neutro-950 font-semibold">7.3. No aplicativo.</strong> Não utilizamos SDKs de publicidade, pixels de redes sociais nem qualquer rastreamento para fins de anúncio. Utilizamos o <strong className="text-neutro-950 font-semibold">Mixpanel</strong> para entender, de forma agregada, como as pessoas percorrem o aplicativo: que etapas concluem e onde desistem.</p>
               <p><strong className="text-neutro-950 font-semibold">7.3.1. O que é enviado ao Mixpanel.</strong> Eventos de uso — abrir o aplicativo, concluir uma etapa, pedir um roteiro, chegar ao cadastro — e identificadores técnicos: um identificador do aparelho gerado por nós e, depois do login, o identificador da sua conta. <strong className="text-neutro-950 font-semibold">Não são enviados o conteúdo dos seus roteiros, os textos que você escreve, seu nome, seu e-mail nem qualquer dado de cadastro.</strong> Os dados ficam em servidores na União Europeia.</p>
               <p><strong className="text-neutro-950 font-semibold">7.3.2. Parte das métricas continua sendo apurada internamente.</strong> Volume de roteiros, custo de processamento e uso das funcionalidades saem do nosso próprio banco de dados, sem passar por terceiros. O Mixpanel cobre o que o banco não enxerga: o caminho percorrido antes de o roteiro existir.</p>
-              <p><strong className="text-neutro-950 font-semibold">7.3.3.</strong> O aplicativo não apresenta aviso de consentimento para essa medição, que se apoia em <strong className="text-neutro-950 font-semibold">legítimo interesse</strong> (art. 7º, IX). Você pode se opor a qualquer momento escrevendo para <a href="mailto:privacidade@trix.travel" className="text-terracota-700 hover:underline">privacidade@trix.travel</a>, e nesse caso apagamos seus registros de uso e deixamos de coletá-los.</p>
+              <p><strong className="text-neutro-950 font-semibold">7.3.3.</strong> Essa medição se apoia em <strong className="text-neutro-950 font-semibold">legítimo interesse</strong> (art. 7º, IX). No primeiro acesso, o aplicativo mostra um aviso com duas opções do mesmo peso, <strong className="text-neutro-950 font-semibold">&quot;Entendi&quot;</strong> e <strong className="text-neutro-950 font-semibold">&quot;Não compartilhar&quot;</strong>. A escolha pode ser trocada a qualquer momento em <strong className="text-neutro-950 font-semibold">Perfil → Privacidade e conta → Compartilhar dados de uso</strong>. Quem recusa deixa de enviar qualquer evento ao Mixpanel a partir daquele momento, com ou sem conta. Para apagar também os registros já enviados, escreva para <a href="mailto:privacidade@trix.travel" className="text-terracota-700 hover:underline">privacidade@trix.travel</a>.</p>
+              <p><strong className="text-neutro-950 font-semibold">7.3.4.</strong> Ao excluir sua conta, o identificador do aparelho usado pelo Mixpanel é trocado por um novo, e o uso posterior do aplicativo naquele aparelho deixa de ser associado à conta excluída.</p>
               <p><strong className="text-neutro-950 font-semibold">7.4.</strong> Não realizamos rastreamento entre aplicativos ou sites de terceiros e não vendemos dados para fins publicitários.</p>
             </div>
           </section>
@@ -501,6 +508,8 @@ export default function Politica() {
               <ul className="list-disc pl-5 space-y-1">
                 <li><strong className="text-neutro-950 font-semibold">Exclusão da conta e de todos os dados:</strong> direto no menu de configurações do aplicativo, a qualquer momento, sem precisar falar conosco.</li>
                 <li><strong className="text-neutro-950 font-semibold">Descadastramento de marketing:</strong> link em todos os e-mails que enviamos.</li>
+                <li><strong className="text-neutro-950 font-semibold">Recusar a medição de uso do aplicativo:</strong> em Perfil → Privacidade e conta → Compartilhar dados de uso.</li>
+                <li><strong className="text-neutro-950 font-semibold">Cópia dos seus dados:</strong> em Perfil → Privacidade e conta → Pedir uma cópia dos meus dados, que abre um e-mail já endereçado a nós.</li>
                 <li><strong className="text-neutro-950 font-semibold">Demais direitos, incluindo portabilidade:</strong> escreva para <a href="mailto:privacidade@trix.travel" className="text-terracota-700 hover:underline">privacidade@trix.travel</a>. Respondemos em até <strong className="text-neutro-950 font-semibold">15 dias</strong>. Podemos solicitar confirmação de identidade antes de atender, para proteger sua conta.</li>
               </ul>
               <p>Você também pode apresentar reclamação à <strong className="text-neutro-950 font-semibold">Autoridade Nacional de Proteção de Dados (ANPD)</strong> — gov.br/anpd.</p>
