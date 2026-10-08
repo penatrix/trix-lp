@@ -39,8 +39,8 @@ export default function ExcluirConta() {
               <ol className="list-decimal pl-5 space-y-1">
                 <li>Abra o app da Trix e entre na sua conta.</li>
                 <li>Toque em <strong className={forte}>Perfil</strong>, na barra de baixo.</li>
-                <li>Toque no ícone de <strong className={forte}>configurações</strong>, no alto da tela.</li>
-                <li>Toque em <strong className={forte}>Excluir conta</strong> e confirme.</li>
+                <li>Desça até <strong className={forte}>Privacidade e conta</strong>.</li>
+                <li>Toque em <strong className={forte}>Excluir minha conta</strong> e confirme.</li>
               </ol>
               <p>A exclusão acontece no mesmo instante. Não é preciso falar com a gente.</p>
             </div>
@@ -107,12 +107,17 @@ export default function ExcluirConta() {
               <p>Você pode apagar informações sem excluir a conta:</p>
               <ul className="list-disc pl-5 space-y-1">
                 <li>
-                  <strong className={forte}>Um roteiro:</strong> abra o roteiro e use <strong className={forte}>Excluir roteiro</strong>,
-                  no menu do alto da tela. O roteiro e os dados usados para gerá-lo são apagados na hora.
+                  <strong className={forte}>Um roteiro:</strong> abra o roteiro, toque nos três pontos no alto da tela e use{' '}
+                  <strong className={forte}>Excluir roteiro</strong>, no fim da folha. O roteiro e os dados usados para gerá-lo são
+                  apagados na hora.
                 </li>
                 <li>
                   <strong className={forte}>Seu telefone e outros dados do perfil:</strong> em <strong className={forte}>Perfil</strong>,
-                  edite o perfil e apague o campo.
+                  toque em <strong className={forte}>Editar</strong>, em Seus dados, e apague o campo.
+                </li>
+                <li>
+                  <strong className={forte}>Os dados de uso do app:</strong> em <strong className={forte}>Perfil</strong>, desligue{' '}
+                  <strong className={forte}>Compartilhar dados de uso</strong>. Daí em diante nada mais é enviado.
                 </li>
                 <li>
                   <strong className={forte}>Seus registros de uso e as preferências que o app aprendeu:</strong> escreva para{' '}
