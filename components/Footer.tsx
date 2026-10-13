@@ -14,10 +14,7 @@ export default function Footer() {
         <Marca tamanho={24} />
 
         <nav className="flex flex-wrap justify-center gap-6 text-sm text-neutro-600">
-          <a
-            href="mailto:pena@trix.travel?subject=Trix%20-%20Contato"
-            className="transition-colors hover:text-terracota-700"
-          >
+          <a href="/suporte" className="transition-colors hover:text-terracota-700">
             Suporte
           </a>
           <a href="/termos" className="transition-colors hover:text-terracota-700">
