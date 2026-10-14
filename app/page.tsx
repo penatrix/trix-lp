@@ -6,7 +6,9 @@ import ChamadaFinal from '../components/ChamadaFinal';
 import Comparativo from '../components/Comparativo';
 import Footer from '../components/Footer';
 import Recursos from '../components/Recursos';
+import BotoesDasLojas from '../components/BotoesDasLojas';
 import WaitlistForm from '../components/WaitlistForm';
+import { LOJAS_NO_AR } from '../lib/lojas';
 import { supabase } from '../lib/supabase';
 
 export default function LandingPage() {
@@ -65,17 +67,28 @@ export default function LandingPage() {
             Gerar meu roteiro
           </a>
 
-          <div className="space-y-3 pt-2">
-            <p className="text-sm text-neutro-600">
-              Quer saber quando o app chegar às lojas?
-            </p>
-            <WaitlistForm source="home_hero" variant="hero" />
-          </div>
+          {/* Com as lojas no ar (`lib/lojas.ts`), a lista de espera perde
+              a razão de existir e dá lugar aos botões das lojas. */}
+          {LOJAS_NO_AR ? (
+            <div className="space-y-3 pt-2">
+              <p className="text-sm text-neutro-600">
+                No iPhone e no Android:
+              </p>
+              <BotoesDasLojas />
+            </div>
+          ) : (
+            <div className="space-y-3 pt-2">
+              <p className="text-sm text-neutro-600">
+                Quer saber quando o app chegar às lojas?
+              </p>
+              <WaitlistForm source="home_hero" variant="hero" />
+            </div>
+          )}
 
           {/* O número só entra quando existe. Sem dado, corta-se a
               frase -- e "junte-se a 0 viajantes" seria pior que
               silêncio. */}
-          {waitlistCount !== null && waitlistCount > 0 && (
+          {!LOJAS_NO_AR && waitlistCount !== null && waitlistCount > 0 && (
             <p className="text-sm text-neutro-600">
               <span className="font-mono">{waitlistCount}</span> viajantes já
               pediram o aviso.

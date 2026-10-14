@@ -1,5 +1,7 @@
 import React from 'react';
+import BotoesDasLojas from './BotoesDasLojas';
 import WaitlistForm from './WaitlistForm';
+import { LOJAS_NO_AR } from '../lib/lojas';
 
 /**
  * O fecho da página.
@@ -22,8 +24,9 @@ export default function ChamadaFinal({ source }: { source: string }) {
         {/* Era "O beta está fechado em 50 viajantes". O beta abriu em
             28/09: a entrada é o app, e a lista vira o aviso das lojas. */}
         <p className="mx-auto mt-4 max-w-xl text-lg leading-relaxed text-navy-100">
-          O beta está aberto. Gere seu roteiro agora, ou deixe seu e-mail
-          para saber quando o app chegar às lojas.
+          {LOJAS_NO_AR
+            ? 'Gere seu roteiro no navegador, ou baixe o app no iPhone e no Android.'
+            : 'O beta está aberto. Gere seu roteiro agora, ou deixe seu e-mail para saber quando o app chegar às lojas.'}
         </p>
         <a
           href="https://app.trix.travel"
@@ -32,7 +35,13 @@ export default function ChamadaFinal({ source }: { source: string }) {
           Gerar meu roteiro
         </a>
         <div className="mt-8">
-          <WaitlistForm source={source} variant="cta" sobreNavy />
+          {LOJAS_NO_AR ? (
+            <div className="flex justify-center">
+              <BotoesDasLojas sobreNavy />
+            </div>
+          ) : (
+            <WaitlistForm source={source} variant="cta" sobreNavy />
+          )}
         </div>
       </div>
     </section>
