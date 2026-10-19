@@ -1,9 +1,9 @@
 import React from 'react';
-import PaginaComVideo from '../../components/PaginaComVideo';
+import PaginaDeEntrada from '../../components/PaginaDeEntrada';
 
 export default function RoteiroEuropaPage() {
   return (
-    <PaginaComVideo
+    <PaginaDeEntrada
       slug="roteiro-europa"
       rotulo="Europa"
       titulo="Trens, voos curtos e fronteiras, na ordem certa."

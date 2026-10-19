@@ -1,9 +1,9 @@
 import React from 'react';
-import PaginaComVideo from '../../components/PaginaComVideo';
+import PaginaDeEntrada from '../../components/PaginaDeEntrada';
 
 export default function Roteiro15DiasPage() {
   return (
-    <PaginaComVideo
+    <PaginaDeEntrada
       slug="roteiro-de-viagem-15-dias"
       rotulo="Roteiro de 15 dias"
       titulo="Quinze dias cabem melhor em três bases do que em oito."
