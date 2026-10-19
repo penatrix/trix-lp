@@ -11,8 +11,8 @@ import DiaDeRoteiro from './DiaDeRoteiro';
  * importa.
  *
  * E a linha embaixo do botão destrava o clique sem falar de plano: o
- * primeiro roteiro é grátis e não pede cartão. Preço vem depois do
- * valor (Paulo, 20/10).
+ * acesso é grátis e não pede cartão. **Não é teste** (Paulo, 20/10): a
+ * Trix é grátis, com alguns recursos pagos, e preço vem depois do valor.
  */
 export default function HeroDoRoteiro({
   rotulo,
@@ -46,7 +46,7 @@ export default function HeroDoRoteiro({
           </a>
         </div>
         <p className="text-sm text-neutro-600">
-          Seu primeiro roteiro é grátis e não pede cartão.
+          Acesso grátis, sem cartão. Monte seu roteiro agora.
         </p>
       </div>
       <DiaDeRoteiro />

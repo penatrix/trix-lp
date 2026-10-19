@@ -25,8 +25,8 @@ export default function ChamadaFinal({ source }: { source: string }) {
             28/09: a entrada é o app, e a lista vira o aviso das lojas. */}
         <p className="mx-auto mt-4 max-w-xl text-lg leading-relaxed text-navy-100">
           {LOJAS_NO_AR
-            ? 'Seu primeiro roteiro é grátis e não pede cartão. No navegador, no iPhone e no Android.'
-            : 'Seu primeiro roteiro é grátis e não pede cartão. Quer o app no celular? Deixe o e-mail, e a Trix avisa quando ele chegar às lojas.'}
+            ? 'Acesso grátis, sem cartão. No navegador, no iPhone e no Android.'
+            : 'Acesso grátis, sem cartão. Quer o app no celular? Deixe o e-mail, e a Trix avisa quando ele chegar às lojas.'}
         </p>
         <a
           href="https://app.trix.travel"

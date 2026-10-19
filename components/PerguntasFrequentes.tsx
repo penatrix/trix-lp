@@ -5,8 +5,8 @@ import React from 'react';
  * virarem dúvida (20/10).
  *
  * **Sem preço**, por decisão do Paulo: a página vende o valor antes de
- * falar de plano. A única coisa dita sobre dinheiro é a que destrava o
- * primeiro roteiro -- que ele é grátis e não pede cartão.
+ * falar de plano. E **sem "testar"** (20/10): a Trix é grátis, com
+ * alguns recursos pagos, e não um teste que acaba.
  *
  * Cada resposta é o que o app faz hoje, e nada além: "confere no Google"
  * é a validação de lugares do backend; "de novo com as datas" é a
@@ -14,8 +14,8 @@ import React from 'react';
  */
 const PERGUNTAS = [
   {
-    p: 'Preciso pagar para testar?',
-    r: 'Não. Seu primeiro roteiro é grátis e não pede cartão. Para guardar o roteiro, você cria uma conta com o seu e-mail.',
+    p: 'Como usar a Trix?',
+    r: 'Gere seu roteiro, crie sua conta e pronto: ele fica salvo para você ajustar, dividir com quem vai junto e consultar na viagem. O acesso é grátis e não pede cartão.',
   },
   {
     p: 'A Trix é uma agência de viagens?',
