@@ -1,9 +1,9 @@
 import React from 'react';
-import PaginaComVideo from '../../components/PaginaComVideo';
+import PaginaDeEntrada from '../../components/PaginaDeEntrada';
 
 export default function AppPlanejarViagensPage() {
   return (
-    <PaginaComVideo
+    <PaginaDeEntrada
       slug="app-para-planejar-viagens"
       rotulo="Ferramentas"
       titulo="Planilha organiza o que você já decidiu."
