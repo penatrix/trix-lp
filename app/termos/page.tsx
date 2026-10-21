@@ -7,7 +7,7 @@ export default function Termos() {
     <div className="max-w-4xl mx-auto px-6 py-20 font-sans text-neutro-950">
       <main>
         <h1 className="titulo-secao text-4xl md:text-5xl font-bold mb-2 text-neutro-950">Termos de Uso</h1>
-        <p className="text-sm text-neutro-600 mb-10">Versão 1.0 — vigente a partir de agosto de 2026</p>
+        <p className="text-sm text-neutro-600 mb-10">Versão 1.1 — vigente a partir de 21 de outubro de 2026</p>
 
         <div className="space-y-4 text-sm md:text-base leading-relaxed mb-10">
           <p>
@@ -45,18 +45,18 @@ export default function Termos() {
             <div className="space-y-3 text-neutro-600">
               <p><strong className="text-neutro-950 font-semibold">2.1.</strong> Ao criar uma conta, você manifesta concordância com estes Termos e com a Política de Privacidade. Registramos a data e a versão dos Termos aceitos.</p>
               <p><strong className="text-neutro-950 font-semibold">2.2.</strong> O uso é permitido apenas a pessoas com <strong className="text-neutro-950 font-semibold">18 anos completos ou mais</strong>. Não oferecemos o serviço a crianças e adolescentes e não coletamos intencionalmente dados de menores de 18 anos. Se identificarmos uma conta de menor de idade, ela será encerrada e os dados eliminados.</p>
-              <p><strong className="text-neutro-950 font-semibold">2.3.</strong> O Trix Travel é direcionado a pessoas residentes no Brasil. Os preços são em reais, o atendimento é em português e a distribuição do aplicativo é limitada ao território brasileiro. Não direcionamos nossa oferta a residentes na União Europeia ou no Reino Unido.</p>
+              <p><strong className="text-neutro-950 font-semibold">2.3.</strong> A Trix Travel é direcionada a pessoas residentes no Brasil. Os preços são em reais, o atendimento é em português e a distribuição do aplicativo é limitada ao território brasileiro. Não direcionamos nossa oferta a residentes na União Europeia ou no Reino Unido.</p>
               <p><strong className="text-neutro-950 font-semibold">2.4.</strong> Você pode planejar viagens para qualquer destino do mundo. A restrição acima é sobre onde você reside, não sobre para onde você viaja.</p>
             </div>
           </section>
 
           <section className="pt-10 border-t border-neutro-300">
-            <h2 className="titulo-secao text-2xl font-bold text-neutro-950 mb-3">3. O que o Trix Travel é (e o que não é)</h2>
+            <h2 className="titulo-secao text-2xl font-bold text-neutro-950 mb-3">3. O que a Trix Travel é (e o que não é)</h2>
             <LegalResumo>
               somos um concierge de viagens com inteligência artificial. Não somos agência, não vendemos passagem, não fazemos reserva por você.
             </LegalResumo>
             <div className="space-y-3 text-neutro-600">
-              <p><strong className="text-neutro-950 font-semibold">3.1.</strong> O Trix Travel gera roteiros de viagem personalizados usando inteligência artificial, a partir das informações e preferências que você fornece.</p>
+              <p><strong className="text-neutro-950 font-semibold">3.1.</strong> A Trix Travel gera roteiros de viagem personalizados usando inteligência artificial, a partir das informações e preferências que você fornece.</p>
               <p><strong className="text-neutro-950 font-semibold">3.2.</strong> <strong className="text-neutro-950 font-semibold">Não somos agência de viagens nem operadora turística.</strong> Não intermediamos, não vendemos e não garantimos serviços de transporte, hospedagem, passeios ou seguro. Não emitimos bilhetes nem confirmamos reservas.</p>
               <p><strong className="text-neutro-950 font-semibold">3.3.</strong> Quando o roteiro apresenta um hotel, um passeio ou um serviço, trata-se de <strong className="text-neutro-950 font-semibold">sugestão informativa</strong>. Qualquer contratação ocorre diretamente entre você e o fornecedor, sob as regras dele.</p>
             </div>
@@ -91,7 +91,7 @@ export default function Termos() {
           <section className="pt-10 border-t border-neutro-300">
             <h2 className="titulo-secao text-2xl font-bold text-neutro-950 mb-3">6. Planos, preços e pagamento</h2>
             <LegalResumo>
-              você pode usar de graça com limite. Para mais, existe compra avulsa e assinatura anual. Toda cobrança acontece dentro da App Store ou da Google Play — nós não processamos seu pagamento.
+              você pode usar de graça com limite. Para mais, existe compra avulsa e assinatura anual. No aplicativo, a cobrança acontece na App Store ou na Google Play; no site do aplicativo (app.trix.travel), pelo Stripe. Nós não temos acesso aos dados do seu cartão.
             </LegalResumo>
             <div className="space-y-3 text-neutro-600">
               <p><strong className="text-neutro-950 font-semibold">6.1. Plano gratuito.</strong> Permite gerar <strong className="text-neutro-950 font-semibold">1 roteiro por mês</strong>, além do módulo de brainstorming. Podemos ajustar os limites do plano gratuito, comunicando previamente pelo aplicativo.</p>
@@ -122,9 +122,9 @@ export default function Termos() {
               </div>
 
               <p>Os valores vigentes são sempre os exibidos no aplicativo no momento da compra. Alterações de preço não afetam compras já realizadas nem o período já pago de uma assinatura vigente.</p>
-              <p><strong className="text-neutro-950 font-semibold">6.3. Processamento do pagamento.</strong> Todas as compras são processadas pela <strong className="text-neutro-950 font-semibold">Apple App Store</strong> ou pelo <strong className="text-neutro-950 font-semibold">Google Play</strong>, conforme a loja de origem do aplicativo. A Trix Travel <strong className="text-neutro-950 font-semibold">não coleta, não armazena e não tem acesso</strong> aos seus dados de cartão ou meio de pagamento. A relação de pagamento é regida também pelos termos da respectiva loja.</p>
-              <p><strong className="text-neutro-950 font-semibold">6.4. Renovação automática.</strong> A assinatura anual <strong className="text-neutro-950 font-semibold">renova automaticamente</strong> ao fim de cada período de 12 meses, pelo preço vigente, salvo cancelamento prévio. A loja notifica você antes da renovação, conforme as regras dela.</p>
-              <p><strong className="text-neutro-950 font-semibold">6.5. Cancelamento.</strong> O cancelamento da renovação é feito <strong className="text-neutro-950 font-semibold">nas configurações de assinatura da App Store ou da Google Play</strong>, não no aplicativo Trix Travel. Cancelar interrompe renovações futuras; você mantém o acesso premium até o fim do período já pago.</p>
+              <p><strong className="text-neutro-950 font-semibold">6.3. Processamento do pagamento.</strong> As compras feitas no aplicativo são processadas pela <strong className="text-neutro-950 font-semibold">Apple App Store</strong> ou pelo <strong className="text-neutro-950 font-semibold">Google Play</strong>, conforme a loja de origem do aplicativo. As compras feitas na web, em app.trix.travel, são processadas pelo <strong className="text-neutro-950 font-semibold">Stripe</strong>. A Trix Travel <strong className="text-neutro-950 font-semibold">não coleta, não armazena e não tem acesso</strong> aos seus dados de cartão ou meio de pagamento. A relação de pagamento é regida também pelos termos da respectiva loja ou do Stripe.</p>
+              <p><strong className="text-neutro-950 font-semibold">6.4. Renovação automática.</strong> A assinatura anual <strong className="text-neutro-950 font-semibold">renova automaticamente</strong> ao fim de cada período de 12 meses, pelo preço vigente, salvo cancelamento prévio. A loja notifica você antes da renovação, conforme as regras dela; na web, o aviso chega por e-mail.</p>
+              <p><strong className="text-neutro-950 font-semibold">6.5. Cancelamento.</strong> O cancelamento da renovação de uma assinatura feita no aplicativo é feito <strong className="text-neutro-950 font-semibold">nas configurações de assinatura da App Store ou da Google Play</strong>. A assinatura feita na web é cancelada em <strong className="text-neutro-950 font-semibold">Perfil → Gerenciar assinatura</strong>, em app.trix.travel. Cancelar interrompe renovações futuras; você mantém o acesso premium até o fim do período já pago.</p>
               <p><strong className="text-neutro-950 font-semibold">6.6. Compra avulsa.</strong> O roteiro avulso é de pagamento único, sem recorrência, e dá acesso permanente àquele roteiro enquanto sua conta existir.</p>
             </div>
           </section>
@@ -136,7 +136,7 @@ export default function Termos() {
             </LegalResumo>
             <div className="space-y-3 text-neutro-600">
               <p><strong className="text-neutro-950 font-semibold">7.1.</strong> Nos termos do <strong className="text-neutro-950 font-semibold">artigo 49 do Código de Defesa do Consumidor</strong>, você pode desistir da contratação em até <strong className="text-neutro-950 font-semibold">7 (sete) dias corridos</strong> contados da data da compra, com direito à devolução integral do valor pago.</p>
-              <p><strong className="text-neutro-950 font-semibold">7.2.</strong> Como o pagamento é processado pelas lojas de aplicativos, o pedido de reembolso deve ser feito <strong className="text-neutro-950 font-semibold">pelo canal de reembolso da App Store ou da Google Play</strong>. Se você tiver dificuldade, escreva para <a href="mailto:contato@trix.travel" className="text-terracota-700 hover:underline">contato@trix.travel</a> e nós apoiamos o processo junto à loja.</p>
+              <p><strong className="text-neutro-950 font-semibold">7.2.</strong> Para compras feitas no aplicativo, o pedido de reembolso é feito <strong className="text-neutro-950 font-semibold">pelo canal de reembolso da App Store ou da Google Play</strong>. Para compras feitas na web, escreva para <strong className="text-neutro-950 font-semibold">contato@trix.travel</strong>, e o estorno é feito no mesmo meio de pagamento. Se você tiver dificuldade com a loja, escreva para <a href="mailto:contato@trix.travel" className="text-terracota-700 hover:underline">contato@trix.travel</a> e nós apoiamos o processo junto à loja.</p>
               <p><strong className="text-neutro-950 font-semibold">7.3.</strong> Após o prazo de arrependimento, reembolsos são analisados caso a caso, sem prejuízo dos direitos previstos no Código de Defesa do Consumidor em caso de falha na prestação do serviço.</p>
             </div>
           </section>
@@ -160,7 +160,7 @@ export default function Termos() {
               ao compartilhar um roteiro por link, quem tiver o link consegue ver. Pense antes de postar em grupo grande.
             </LegalResumo>
             <div className="space-y-3 text-neutro-600">
-              <p><strong className="text-neutro-950 font-semibold">9.1.</strong> O Trix Travel permite compartilhar roteiros por meio de link. Ao gerar um link de compartilhamento, você autoriza que <strong className="text-neutro-950 font-semibold">qualquer pessoa que tenha acesso ao link</strong> visualize o conteúdo daquele roteiro, incluindo o primeiro nome de quem o criou.</p>
+              <p><strong className="text-neutro-950 font-semibold">9.1.</strong> A Trix Travel permite compartilhar roteiros por meio de link. Ao gerar um link de compartilhamento, você autoriza que <strong className="text-neutro-950 font-semibold">qualquer pessoa que tenha acesso ao link</strong> visualize o conteúdo daquele roteiro, incluindo o primeiro nome de quem o criou.</p>
               <p><strong className="text-neutro-950 font-semibold">9.2.</strong> Você é responsável por decidir com quem compartilha e pelo conteúdo que insere manualmente no roteiro.</p>
               <p><strong className="text-neutro-950 font-semibold">9.3.</strong> Se você excluir o roteiro ou sua conta, o link deixa de funcionar.</p>
             </div>
@@ -280,7 +280,7 @@ export default function Termos() {
         </div>
 
         <p className="text-xs text-neutro-600 mt-12 pt-6 border-t border-neutro-300">
-          Documento gerado em 18 de agosto de 2026. Versão 1.0.
+          Documento atualizado em 21 de outubro de 2026. Versão 1.1.
         </p>
       </main>
 
