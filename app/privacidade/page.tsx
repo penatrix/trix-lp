@@ -7,7 +7,7 @@ export default function Politica() {
     <div className="max-w-4xl mx-auto px-6 py-20 font-sans text-neutro-950">
       <main>
         <h1 className="titulo-secao text-4xl md:text-5xl font-bold mb-2 text-neutro-950">Política de Privacidade</h1>
-        <p className="text-sm text-neutro-600 mb-10">Versão 1.1 — vigente a partir de 22 de outubro de 2026</p>
+        <p className="text-sm text-neutro-600 mb-10">Versão 1.2 — vigente a partir de 21 de outubro de 2026</p>
 
         <div className="space-y-4 text-sm md:text-base leading-relaxed mb-10">
           <p className="text-neutro-600">
@@ -259,7 +259,7 @@ export default function Politica() {
               <p><strong className="text-neutro-950 font-semibold">4.1.</strong> Para gerar um roteiro, enviamos a um modelo de inteligência artificial de terceiro um conjunto estruturado com destino, datas, número de viajantes, faixa de orçamento, ritmo, interesses e eventuais pedidos especiais.</p>
               <p><strong className="text-neutro-950 font-semibold">4.2.</strong> <strong className="text-neutro-950 font-semibold">Contratamos o serviço de IA em modalidade corporativa paga, cujos termos vedam o uso do conteúdo enviado para treinar modelos do fornecedor.</strong> Seus dados alimentam a geração do seu roteiro, não o produto de outra empresa.</p>
               <p><strong className="text-neutro-950 font-semibold">4.3.</strong> <strong className="text-neutro-950 font-semibold">Não treinamos modelos próprios</strong> com dados de usuários.</p>
-              <p><strong className="text-neutro-950 font-semibold">4.4. Travel DNA.</strong> O sistema mantém um perfil de preferências atualizado automaticamente a partir das suas interações com as atividades sugeridas. A finalidade é reduzir o retrabalho: quanto mais o Trix entende seu estilo, menos você precisa corrigir.</p>
+              <p><strong className="text-neutro-950 font-semibold">4.4. Travel DNA.</strong> O sistema mantém um perfil de preferências atualizado automaticamente a partir das suas interações com as atividades sugeridas. A finalidade é reduzir o retrabalho: quanto mais a Trix entende seu estilo, menos você precisa corrigir.</p>
               <div>
                 <p><strong className="text-neutro-950 font-semibold">4.5. Seus controles sobre o Travel DNA.</strong> Você pode, a qualquer momento:</p>
                 <ul className="list-disc pl-5 space-y-1 mt-2">
@@ -349,8 +349,20 @@ export default function Politica() {
                     </tr>
                     <tr>
                       <td className="border border-neutro-300 px-4 py-2">Apple / Google Play</td>
-                      <td className="border border-neutro-300 px-4 py-2">Processamento de pagamentos</td>
+                      <td className="border border-neutro-300 px-4 py-2">Processamento de pagamentos no aplicativo</td>
                       <td className="border border-neutro-300 px-4 py-2">Dados de pagamento, aos quais não temos acesso</td>
+                      <td className="border border-neutro-300 px-4 py-2">EUA</td>
+                    </tr>
+                    <tr>
+                      <td className="border border-neutro-300 px-4 py-2">Stripe</td>
+                      <td className="border border-neutro-300 px-4 py-2">Processamento de pagamentos na web (app.trix.travel)</td>
+                      <td className="border border-neutro-300 px-4 py-2">E-mail e dados de pagamento, aos quais não temos acesso</td>
+                      <td className="border border-neutro-300 px-4 py-2">EUA</td>
+                    </tr>
+                    <tr>
+                      <td className="border border-neutro-300 px-4 py-2">RevenueCat</td>
+                      <td className="border border-neutro-300 px-4 py-2">Gestão das assinaturas e compras, no aplicativo e na web</td>
+                      <td className="border border-neutro-300 px-4 py-2">Identificador da conta, e-mail na compra pela web, e o histórico de compras</td>
                       <td className="border border-neutro-300 px-4 py-2">EUA</td>
                     </tr>
                     <tr>
@@ -381,7 +393,7 @@ export default function Politica() {
           <section className="pt-10 border-t border-neutro-300">
             <h2 className="titulo-secao text-2xl font-bold text-neutro-950 mb-3">7. Cookies e ferramentas de análise</h2>
             <LegalResumo>
-              o site usa Google Analytics e o aplicativo usa Mixpanel, os dois só para medir uso. Nos dois você pode recusar: no site, pelo aviso de cookies; no aplicativo, pelo aviso do primeiro acesso ou no Perfil. Nenhum dos dois serve para publicidade.
+              o site usa Google Analytics e o aplicativo usa Mixpanel, os dois só para medir uso. Nos dois você pode recusar: no site, pelo aviso de cookies; no aplicativo, no Perfil. Nenhum dos dois serve para publicidade.
             </LegalResumo>
             <div className="space-y-3 text-neutro-600">
               <p><strong className="text-neutro-950 font-semibold">7.1. No site (trix.travel).</strong> Utilizamos cookies estritamente necessários ao funcionamento e, mediante seu consentimento, o <strong className="text-neutro-950 font-semibold">Google Analytics</strong> para entender de forma agregada como as pessoas encontram e navegam pelo site.</p>
@@ -389,7 +401,7 @@ export default function Politica() {
               <p><strong className="text-neutro-950 font-semibold">7.3. No aplicativo.</strong> Não utilizamos SDKs de publicidade, pixels de redes sociais nem qualquer rastreamento para fins de anúncio. Utilizamos o <strong className="text-neutro-950 font-semibold">Mixpanel</strong> para entender, de forma agregada, como as pessoas percorrem o aplicativo: que etapas concluem e onde desistem.</p>
               <p><strong className="text-neutro-950 font-semibold">7.3.1. O que é enviado ao Mixpanel.</strong> Eventos de uso — abrir o aplicativo, concluir uma etapa, pedir um roteiro, chegar ao cadastro — e identificadores técnicos: um identificador do aparelho gerado por nós e, depois do login, o identificador da sua conta. <strong className="text-neutro-950 font-semibold">Não são enviados o conteúdo dos seus roteiros, os textos que você escreve, seu nome, seu e-mail nem qualquer dado de cadastro.</strong> Os dados ficam em servidores na União Europeia.</p>
               <p><strong className="text-neutro-950 font-semibold">7.3.2. Parte das métricas continua sendo apurada internamente.</strong> Volume de roteiros, custo de processamento e uso das funcionalidades saem do nosso próprio banco de dados, sem passar por terceiros. O Mixpanel cobre o que o banco não enxerga: o caminho percorrido antes de o roteiro existir.</p>
-              <p><strong className="text-neutro-950 font-semibold">7.3.3.</strong> Essa medição se apoia em <strong className="text-neutro-950 font-semibold">legítimo interesse</strong> (art. 7º, IX). No primeiro acesso, o aplicativo mostra um aviso com duas opções do mesmo peso, <strong className="text-neutro-950 font-semibold">&quot;Entendi&quot;</strong> e <strong className="text-neutro-950 font-semibold">&quot;Não compartilhar&quot;</strong>. A escolha pode ser trocada a qualquer momento em <strong className="text-neutro-950 font-semibold">Perfil → Privacidade e conta → Compartilhar dados de uso</strong>. Quem recusa deixa de enviar qualquer evento ao Mixpanel a partir daquele momento, com ou sem conta. Para apagar também os registros já enviados, escreva para <a href="mailto:privacidade@trix.travel" className="text-terracota-700 hover:underline">privacidade@trix.travel</a>.</p>
+              <p><strong className="text-neutro-950 font-semibold">7.3.3.</strong> Essa medição se apoia em <strong className="text-neutro-950 font-semibold">legítimo interesse</strong> (art. 7º, IX). O aviso sobre ela aparece no cadastro, junto dos Termos e desta Política, e a medição pode ser desligada a qualquer momento em <strong className="text-neutro-950 font-semibold">Perfil → Privacidade e conta → Medir o uso do app</strong>. Quem recusa deixa de enviar qualquer evento ao Mixpanel a partir daquele momento, com ou sem conta. Para apagar também os registros já enviados, escreva para <a href="mailto:privacidade@trix.travel" className="text-terracota-700 hover:underline">privacidade@trix.travel</a>.</p>
               <p><strong className="text-neutro-950 font-semibold">7.3.4.</strong> Ao excluir sua conta, o identificador do aparelho usado pelo Mixpanel é trocado por um novo, e o uso posterior do aplicativo naquele aparelho deixa de ser associado à conta excluída.</p>
               <p><strong className="text-neutro-950 font-semibold">7.4.</strong> Não realizamos rastreamento entre aplicativos ou sites de terceiros e não vendemos dados para fins publicitários.</p>
             </div>
@@ -545,7 +557,7 @@ export default function Politica() {
           <section className="pt-10 border-t border-neutro-300">
             <h2 className="titulo-secao text-2xl font-bold text-neutro-950 mb-3">12. Menores de 18 anos</h2>
             <div className="space-y-3 text-neutro-600">
-              <p>O Trix Travel é destinado exclusivamente a maiores de 18 anos. Não coletamos intencionalmente dados de crianças e adolescentes.</p>
+              <p>A Trix é destinada exclusivamente a maiores de 18 anos. Não coletamos intencionalmente dados de crianças e adolescentes.</p>
               <p>Se tomarmos conhecimento de conta pertencente a menor de 18 anos, ela será encerrada e os dados eliminados. Responsáveis que identifiquem essa situação podem nos acionar em <a href="mailto:privacidade@trix.travel" className="text-terracota-700 hover:underline">privacidade@trix.travel</a> para eliminação imediata.</p>
             </div>
           </section>
@@ -570,7 +582,7 @@ export default function Politica() {
         </div>
 
         <p className="text-xs text-neutro-600 mt-12 pt-6 border-t border-neutro-300">
-          Documento atualizado em 22 de setembro de 2026. Versão 1.1.
+          Documento atualizado em 21 de outubro de 2026. Versão 1.2.
         </p>
       </main>
 
