@@ -14,11 +14,12 @@
 export const LOJAS_NO_AR = false;
 
 /**
- * O endereço da App Store só existe com o id numérico do app (App Store
- * Connect → App Information → Apple ID). Enquanto for nulo, o botão da
- * Apple não aparece, mesmo com a chave ligada.
+ * O endereço da App Store sai do id numérico do app (App Store Connect →
+ * App Information → Apple ID: 6817871137, 27/10). Enquanto for nulo, o
+ * botão da Apple não aparece, mesmo com a chave ligada.
  */
-export const LINK_APP_STORE: string | null = null;
+export const LINK_APP_STORE: string | null =
+  'https://apps.apple.com/br/app/id6817871137';
 
 export const LINK_GOOGLE_PLAY =
   'https://play.google.com/store/apps/details?id=travel.trix.app';
