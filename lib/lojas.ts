@@ -8,10 +8,10 @@
 // trix.travel/baixar passam a apontar para as lojas.
 //
 // Ligar antes de o app estar publicado manda gente para uma página que
-// a loja responde como inexistente.
+// a loja responde como inexistente. Ligada em 03/11, no lançamento.
 
 /** As duas lojas estão no ar. */
-export const LOJAS_NO_AR = false;
+export const LOJAS_NO_AR = true;
 
 /**
  * O endereço da App Store sai do id numérico do app (App Store Connect →
