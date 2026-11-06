@@ -29,16 +29,14 @@ export default function ChamadaFinal({ source }: { source: string }) {
             : 'Acesso grátis, sem cartão. Quer o app no celular? Deixe o e-mail, e a Trix avisa quando ele chegar às lojas.'}
         </p>
         <a
-          href="https://app.trix.travel"
+          href="/abrir"
           className="titulo-secao mt-8 inline-block rounded-2xl bg-terracota-700 px-6 py-3 text-base text-white transition-colors hover:bg-terracota-900"
         >
           Gerar meu roteiro
         </a>
         <div className="mt-8">
           {LOJAS_NO_AR ? (
-            <div className="flex justify-center">
-              <BotoesDasLojas sobreNavy />
-            </div>
+            <BotoesDasLojas centralizar />
           ) : (
             <WaitlistForm source={source} variant="cta" sobreNavy />
           )}

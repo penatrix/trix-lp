@@ -4,6 +4,7 @@ import ChamadaFinal from '../components/ChamadaFinal';
 import ComoFunciona from '../components/ComoFunciona';
 import Comparativo from '../components/Comparativo';
 import Descoberta from '../components/Descoberta';
+import FaixaDasLojas from '../components/FaixaDasLojas';
 import Footer from '../components/Footer';
 import HeroDoRoteiro from '../components/HeroDoRoteiro';
 import PerguntasFrequentes from '../components/PerguntasFrequentes';
@@ -33,6 +34,7 @@ export default function LandingPage() {
         }
         resumo="A Trix devolve esse tempo: roteiro dia a dia, com os lugares, os trajetos entre eles e o custo estimado de cada dia."
       />
+      <FaixaDasLojas />
       <Comparativo />
       <ComoFunciona />
       <Recursos />

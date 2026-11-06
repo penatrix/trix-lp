@@ -9,7 +9,10 @@
  *
  * "Usar este roteiro" abre a ficha no app (`/inspiracao?chave=`), que
  * funciona sem conta e leva à criação com cidades, dias e vibes postos.
+ * Pelo /abrir (06/11): no celular o toque vai para a loja, e a ficha se
+ * perde; no computador abre direto nela.
  */
+import { linkParaOApp } from './lojas';
 export type Trecho = { cidade: string; dias: number; chegada?: string };
 
 export type RoteiroModelo = {
@@ -30,7 +33,7 @@ export function urlDaFoto(f: RoteiroModelo['foto'], largura = 800) {
 }
 
 export function urlDaFicha(chave: string) {
-  return `https://app.trix.travel/inspiracao?chave=${chave}`;
+  return linkParaOApp(`/inspiracao?chave=${chave}`);
 }
 
 export function totalDeDias(r: RoteiroModelo) {

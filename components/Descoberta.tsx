@@ -45,7 +45,7 @@ export default function Descoberta() {
           que cada um entrou.
         </p>
         <a
-          href="https://app.trix.travel"
+          href="/abrir"
           className="titulo-secao inline-block text-base text-terracota-700 underline-offset-4 hover:underline"
         >
           Descobrir meu destino

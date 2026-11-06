@@ -33,7 +33,7 @@ export default function HeroDoRoteiro({
         <p className="max-w-lg text-lg leading-relaxed text-neutro-600">{resumo}</p>
         <div className="flex flex-wrap items-center gap-x-6 gap-y-3 pt-2">
           <a
-            href="https://app.trix.travel"
+            href="/abrir"
             className="titulo-secao inline-block rounded-2xl bg-terracota-700 px-6 py-3.5 text-base text-white transition-colors hover:bg-terracota-900"
           >
             Gerar meu roteiro
