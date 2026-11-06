@@ -16,7 +16,7 @@ export default function Cabecalho() {
           <Marca tamanho={30} />
         </a>
         <a
-          href="https://app.trix.travel"
+          href="/abrir"
           className="font-titulo text-sm font-semibold text-terracota-700 underline-offset-4 transition-colors hover:text-terracota-900 hover:underline"
         >
           Entrar

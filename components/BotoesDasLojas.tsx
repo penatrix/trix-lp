@@ -2,27 +2,27 @@ import React from 'react';
 import { LINK_APP_STORE, LINK_GOOGLE_PLAY } from '../lib/lojas';
 
 /**
- * Os dois botões das lojas, em texto.
+ * Os selos oficiais das duas lojas (06/11, pedido do Paulo: o texto
+ * "Baixar na App Store" era tímido demais).
  *
- * Contorno, e não terracota: a ação da página continua sendo uma só
- * ("Gerar meu roteiro"), e terracota é só para ela. Os selos oficiais
- * da Apple e do Google são imagem com regra de uso própria; trocar o
- * texto por eles é decisão da Lais.
+ * Os arquivos são os da Apple (Marketing Tools, pt-br, preto) e do Google
+ * (badge pt-br), sem redesenho: as duas marcas proíbem selo refeito,
+ * recolorido ou com outro texto. Mesma altura para os dois, como as duas
+ * pedem, e nada de terracota por perto: a ação da página continua sendo
+ * "Gerar meu roteiro".
  */
-export default function BotoesDasLojas({ sobreNavy = false }: { sobreNavy?: boolean }) {
-  const estilo = sobreNavy
-    ? 'border-areia text-areia hover:bg-navy-700'
-    : 'border-navy-500 text-navy-500 hover:bg-navy-100';
-  const botao = `titulo-secao inline-block rounded-2xl border px-5 py-3 text-base transition-colors ${estilo}`;
+export default function BotoesDasLojas({ centralizar = false }: { centralizar?: boolean }) {
   return (
-    <div className="flex flex-wrap gap-3">
+    <div className={`flex flex-wrap items-center gap-3 ${centralizar ? 'justify-center' : ''}`}>
       {LINK_APP_STORE && (
-        <a href={LINK_APP_STORE} className={botao}>
-          Baixar na App Store
+        <a href={LINK_APP_STORE} aria-label="Baixar na App Store">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/lojas/app-store-pt-br.svg" alt="Baixar na App Store" className="h-12 w-auto" />
         </a>
       )}
-      <a href={LINK_GOOGLE_PLAY} className={botao}>
-        Baixar no Google Play
+      <a href={LINK_GOOGLE_PLAY} aria-label="Disponível no Google Play">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/lojas/google-play-pt-br.png" alt="Disponível no Google Play" className="h-12 w-auto" />
       </a>
     </div>
   );

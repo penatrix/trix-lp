@@ -35,3 +35,27 @@ export function lojaDoAparelho(userAgent: string): 'apple' | 'google' | null {
   if (/android/.test(ua)) return 'google';
   return null;
 }
+
+/**
+ * Para onde vai quem toca em "Gerar meu roteiro" ou "Entrar" (06/11,
+ * decisão do Paulo): no celular, só as lojas, porque o app nativo é a
+ * experiência certa ali; no computador e no iPad, o app na web.
+ *
+ * `caminho` é um caminho do app na web ("/inspiracao?chave=x"). Só vale
+ * começando por uma barra e sem "//", para o /abrir não virar
+ * redirecionamento aberto para qualquer site.
+ */
+export function destinoDoAparelho(userAgent: string, caminho?: string | null): string {
+  if (LOJAS_NO_AR) {
+    const loja = lojaDoAparelho(userAgent);
+    if (loja === 'apple' && LINK_APP_STORE) return LINK_APP_STORE;
+    if (loja === 'google') return LINK_GOOGLE_PLAY;
+  }
+  const seguro = caminho && /^\/(?!\/)[^\\\s]*$/.test(caminho) ? caminho : '';
+  return LINK_APP_WEB + seguro;
+}
+
+/** O endereço que o site usa para mandar alguém ao app. */
+export function linkParaOApp(caminho?: string): string {
+  return caminho ? `/abrir?caminho=${encodeURIComponent(caminho)}` : '/abrir';
+}
