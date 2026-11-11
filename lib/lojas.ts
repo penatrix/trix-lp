@@ -17,9 +17,13 @@ export const LOJAS_NO_AR = true;
  * O endereço da App Store sai do id numérico do app (App Store Connect →
  * App Information → Apple ID: 6817871137, 27/10). Enquanto for nulo, o
  * botão da Apple não aparece, mesmo com a chave ligada.
+ *
+ * Sem o país no endereço desde 11/11: com `/br/`, quem tem conta da Apple
+ * de outro país caía na loja brasileira. Sem ele, a Apple abre a loja de
+ * quem toca.
  */
 export const LINK_APP_STORE: string | null =
-  'https://apps.apple.com/br/app/id6817871137';
+  'https://apps.apple.com/app/id6817871137';
 
 export const LINK_GOOGLE_PLAY =
   'https://play.google.com/store/apps/details?id=travel.trix.app';

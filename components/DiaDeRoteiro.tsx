@@ -1,5 +1,6 @@
 import React from 'react';
 import { ROTEIROS_MODELO, urlDaFoto } from '../lib/vitrine';
+import type { Idioma } from '../lib/idioma';
 
 /**
  * Um dia de roteiro de verdade, no lugar do vídeo do hero (20/10).
@@ -15,36 +16,85 @@ import { ROTEIROS_MODELO, urlDaFoto } from '../lib/vitrine';
  * porque o modelo diz que o ingresso do Coliseu cobre a entrada: zero
  * não aparece como R$ 0.
  *
+ * Em inglês (11/11) é o mesmo dia, traduzido, e o custo continua em
+ * reais: é a moeda em que o app mostra o custo hoje. Converter aqui
+ * prometeria uma moeda que o app ainda não tem.
+ *
  * A foto é a da ficha, e o texto não vai sobre ela: vai num cartão
  * claro por cima, que é uma das duas soluções que o brandbook autoriza.
  */
-const ATIVIDADES = [
-  {
-    periodo: 'Manhã',
-    lugar: 'Coliseu',
-    logistica: 'Ingresso no site da CoopCulture, 30 dias antes. Metrô Colosseo, linha B.',
-    custo: 'R$ 120 por pessoa',
-    reserva: true,
+const ATIVIDADES = {
+  pt: [
+    {
+      periodo: 'Manhã',
+      lugar: 'Coliseu',
+      logistica: 'Ingresso no site da CoopCulture, 30 dias antes. Metrô Colosseo, linha B.',
+      custo: 'R$ 120 por pessoa',
+      reserva: true,
+    },
+    {
+      periodo: 'Tarde',
+      lugar: 'Fórum Romano e Monte Palatino',
+      logistica: 'A entrada é logo na saída do Coliseu.',
+      custo: 'incluso no ingresso',
+      reserva: false,
+    },
+    {
+      periodo: 'Noite',
+      lugar: 'Armando al Pantheon',
+      logistica: 'Trattoria de 1961, ao lado do Panteão. Fecha aos domingos.',
+      custo: 'R$ 250 por pessoa',
+      reserva: true,
+    },
+  ],
+  en: [
+    {
+      periodo: 'Morning',
+      lugar: 'Colosseum',
+      logistica: 'Tickets on the CoopCulture website, 30 days ahead. Colosseo metro, line B.',
+      custo: 'R$ 120 per person',
+      reserva: true,
+    },
+    {
+      periodo: 'Afternoon',
+      lugar: 'Roman Forum and Palatine Hill',
+      logistica: 'The entrance is right by the Colosseum exit.',
+      custo: 'included in the ticket',
+      reserva: false,
+    },
+    {
+      periodo: 'Evening',
+      lugar: 'Armando al Pantheon',
+      logistica: 'Trattoria since 1961, next to the Pantheon. Closed on Sundays.',
+      custo: 'R$ 250 per person',
+      reserva: true,
+    },
+  ],
+};
+
+const TEXTOS = {
+  pt: {
+    dia: 'Dia 1 · Roma',
+    paradas: '3 paradas',
+    reservar: 'reservar antes',
+    custoDoDia: 'Custo do dia',
+    total: 'R$ 370 por pessoa',
+    legenda: 'Do roteiro-modelo Roma, Florença e Veneza. Foto:',
   },
-  {
-    periodo: 'Tarde',
-    lugar: 'Fórum Romano e Monte Palatino',
-    logistica: 'A entrada é logo na saída do Coliseu.',
-    custo: 'incluso no ingresso',
-    reserva: false,
+  en: {
+    dia: 'Day 1 · Rome',
+    paradas: '3 stops',
+    reservar: 'book ahead',
+    custoDoDia: 'Cost of the day',
+    total: 'R$ 370 per person',
+    legenda: 'From the Rome, Florence and Venice sample itinerary. Photo:',
   },
-  {
-    periodo: 'Noite',
-    lugar: 'Armando al Pantheon',
-    logistica: 'Trattoria de 1961, ao lado do Panteão. Fecha aos domingos.',
-    custo: 'R$ 250 por pessoa',
-    reserva: true,
-  },
-];
+};
 
 const ROMA = ROTEIROS_MODELO.find((r) => r.chave === 'italia')!;
 
-export default function DiaDeRoteiro() {
+export default function DiaDeRoteiro({ idioma = 'pt' }: { idioma?: Idioma }) {
+  const t = TEXTOS[idioma];
   return (
     <figure className="relative mx-auto w-full max-w-md">
       <div
@@ -62,12 +112,12 @@ export default function DiaDeRoteiro() {
 
       <div className="relative -mt-56 mx-4 rounded-2xl border border-neutro-300 bg-white p-5 shadow-[0_12px_32px_rgba(20,33,61,0.14)] sm:mx-6">
         <div className="flex items-baseline justify-between">
-          <p className="rotulo-secao text-navy-500">Dia 1 · Roma</p>
-          <p className="font-mono text-xs text-neutro-600">3 paradas</p>
+          <p className="rotulo-secao text-navy-500">{t.dia}</p>
+          <p className="font-mono text-xs text-neutro-600">{t.paradas}</p>
         </div>
 
         <ol className="mt-4 space-y-4">
-          {ATIVIDADES.map((a) => (
+          {ATIVIDADES[idioma].map((a) => (
             <li key={a.lugar} className="flex gap-3">
               <span className="w-14 shrink-0 pt-0.5 font-mono text-[11px] uppercase tracking-[0.06em] text-petroleo">
                 {a.periodo}
@@ -83,7 +133,7 @@ export default function DiaDeRoteiro() {
                   {a.custo}
                   {a.reserva && (
                     <span className="rounded-full bg-navy-100 px-2 py-0.5 text-[10px] uppercase tracking-[0.06em] text-navy-500">
-                      reservar antes
+                      {t.reservar}
                     </span>
                   )}
                 </p>
@@ -93,14 +143,13 @@ export default function DiaDeRoteiro() {
         </ol>
 
         <div className="mt-5 flex items-baseline justify-between border-t border-neutro-300 pt-3">
-          <p className="rotulo-secao text-neutro-600">Custo do dia</p>
-          <p className="font-mono text-sm text-neutro-950">R$ 370 por pessoa</p>
+          <p className="rotulo-secao text-neutro-600">{t.custoDoDia}</p>
+          <p className="font-mono text-sm text-neutro-950">{t.total}</p>
         </div>
       </div>
 
       <figcaption className="mt-3 px-4 text-xs text-neutro-600 sm:px-6">
-        Do roteiro-modelo Roma, Florença e Veneza. Foto: {ROMA.foto.fotografo} ·
-        Unsplash
+        {t.legenda} {ROMA.foto.fotografo} · Unsplash
       </figcaption>
     </figure>
   );
