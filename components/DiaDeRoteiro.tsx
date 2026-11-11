@@ -116,10 +116,13 @@ export default function DiaDeRoteiro({ idioma = 'pt' }: { idioma?: Idioma }) {
           <p className="font-mono text-xs text-neutro-600">{t.paradas}</p>
         </div>
 
-        <ol className="mt-4 space-y-4">
+        {/* A coluna do período tem a largura do rótulo mais longo: em
+            inglês "Afternoon" não cabe nos 56 px de "Manhã" e encostava
+            no nome do lugar (11/11). */}
+        <ol className="mt-4 grid grid-cols-[max-content_minmax(0,1fr)] gap-x-3 gap-y-4">
           {ATIVIDADES[idioma].map((a) => (
-            <li key={a.lugar} className="flex gap-3">
-              <span className="w-14 shrink-0 pt-0.5 font-mono text-[11px] uppercase tracking-[0.06em] text-petroleo">
+            <li key={a.lugar} className="contents">
+              <span className="pt-0.5 font-mono text-[11px] uppercase tracking-[0.06em] text-petroleo">
                 {a.periodo}
               </span>
               <div className="min-w-0">

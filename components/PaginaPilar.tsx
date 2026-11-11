@@ -3,7 +3,6 @@ import Cabecalho from './Cabecalho';
 import ChamadaFinal from './ChamadaFinal';
 import Footer from './Footer';
 import Blocos, { type Bloco } from './Blocos';
-import WaitlistForm from './WaitlistForm';
 
 /**
  * O molde das páginas de conteúdo.
@@ -19,6 +18,9 @@ import WaitlistForm from './WaitlistForm';
  * próprio. O `slug` vira a origem registrada no formulário, que é o que
  * permite saber qual página trouxe cada inscrição -- é a única medição
  * que este site tem.
+ *
+ * Desde 11/11 o topo leva ao app, como o das páginas de entrada: com o
+ * app no ar, pedir e-mail para "avisar" não avisava de nada.
  */
 export default function PaginaPilar({
   slug,
@@ -53,7 +55,15 @@ export default function PaginaPilar({
         <p className="mb-8 max-w-2xl text-lg leading-relaxed text-neutro-600">
           {resumo}
         </p>
-        <WaitlistForm source={`${slug}_hero`} variant="hero" />
+        <a
+          href="/abrir"
+          className="titulo-secao inline-block rounded-2xl bg-terracota-700 px-6 py-3.5 text-base text-white transition-colors hover:bg-terracota-900"
+        >
+          Gerar meu roteiro
+        </a>
+        <p className="mt-3 text-sm text-neutro-600">
+          Acesso grátis, sem cartão. Monte seu roteiro agora.
+        </p>
       </section>
 
       <Blocos

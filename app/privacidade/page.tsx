@@ -1,6 +1,17 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import LegalResumo from '../../components/LegalResumo';
+
+// A versão em inglês mora em `app/en/privacy` (11/11). Mudou uma, mude a
+// outra: as duas levam o mesmo número de versão e a mesma data.
+export const metadata: Metadata = {
+  title: 'Política de Privacidade | Trix',
+  alternates: {
+    canonical: '/privacidade',
+    languages: { 'pt-BR': '/privacidade', en: '/en/privacy' },
+  },
+};
 
 export default function Politica() {
   return (
@@ -520,7 +531,7 @@ export default function Politica() {
               <ul className="list-disc pl-5 space-y-1">
                 <li><strong className="text-neutro-950 font-semibold">Exclusão da conta e de todos os dados:</strong> direto no menu de configurações do aplicativo, a qualquer momento, sem precisar falar conosco.</li>
                 <li><strong className="text-neutro-950 font-semibold">Descadastramento de marketing:</strong> link em todos os e-mails que enviamos.</li>
-                <li><strong className="text-neutro-950 font-semibold">Recusar a medição de uso do aplicativo:</strong> em Perfil → Privacidade e conta → Compartilhar dados de uso.</li>
+                <li><strong className="text-neutro-950 font-semibold">Recusar a medição de uso do aplicativo:</strong> em Perfil → Privacidade e conta → Medir o uso do app.</li>
                 <li><strong className="text-neutro-950 font-semibold">Cópia dos seus dados:</strong> em Perfil → Privacidade e conta → Pedir uma cópia dos meus dados, que abre um e-mail já endereçado a nós.</li>
                 <li><strong className="text-neutro-950 font-semibold">Demais direitos, incluindo portabilidade:</strong> escreva para <a href="mailto:privacidade@trix.travel" className="text-terracota-700 hover:underline">privacidade@trix.travel</a>. Respondemos em até <strong className="text-neutro-950 font-semibold">15 dias</strong>. Podemos solicitar confirmação de identidade antes de atender, para proteger sua conta.</li>
               </ul>
