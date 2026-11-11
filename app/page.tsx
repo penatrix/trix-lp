@@ -1,4 +1,5 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import Cabecalho from '../components/Cabecalho';
 import ChamadaFinal from '../components/ChamadaFinal';
 import ComoFunciona from '../components/ComoFunciona';
@@ -19,11 +20,22 @@ import Vitrine from '../components/Vitrine';
  * A promessa do topo não tem número de segundos, e isso é decisão do
  * Paulo: "gerado em segundos" deprecia o valor percebido. A dor a atacar
  * é a oposta, e é o tempo de pesquisa que o produto elimina.
+ *
+ * Desde 11/11 a home tem a versão em inglês, em `/en` (`app/en/page.tsx`):
+ * o `proxy.ts` leva até ela quem chega com o navegador em outro idioma, e
+ * o seletor PT/EN do topo troca e grava a escolha.
  */
+export const metadata: Metadata = {
+  alternates: {
+    canonical: '/',
+    languages: { 'pt-BR': '/', en: '/en', 'x-default': '/' },
+  },
+};
+
 export default function LandingPage() {
   return (
     <div className="min-h-screen bg-areia font-sans text-neutro-800">
-      <Cabecalho />
+      <Cabecalho seletor />
       <HeroDoRoteiro
         titulo={
           <>

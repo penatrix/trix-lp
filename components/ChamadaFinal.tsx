@@ -2,6 +2,7 @@ import React from 'react';
 import BotoesDasLojas from './BotoesDasLojas';
 import WaitlistForm from './WaitlistForm';
 import { LOJAS_NO_AR } from '../lib/lojas';
+import type { Idioma } from '../lib/idioma';
 
 /**
  * O fecho da página.
@@ -14,29 +15,40 @@ import { LOJAS_NO_AR } from '../lib/lojas';
  * aqui que a estrutura vira convite. Navy em excesso pesaria -- por isso
  * um bloco, não três.
  */
-export default function ChamadaFinal({ source }: { source: string }) {
+export default function ChamadaFinal({
+  source,
+  idioma = 'pt',
+}: {
+  source: string;
+  idioma?: Idioma;
+}) {
+  const en = idioma === 'en';
   return (
     <section className="bg-navy-500 py-24 text-areia">
       <div className="mx-auto max-w-3xl px-6 text-center">
         <h2 className="titulo-secao text-3xl md:text-4xl">
-          Diga onde, e a Trix monta o dia a dia.
+          {en
+            ? 'Tell Trix where, and it builds the day by day.'
+            : 'Diga onde, e a Trix monta o dia a dia.'}
         </h2>
         {/* Era "O beta está fechado em 50 viajantes". O beta abriu em
             28/09: a entrada é o app, e a lista vira o aviso das lojas. */}
         <p className="mx-auto mt-4 max-w-xl text-lg leading-relaxed text-navy-100">
-          {LOJAS_NO_AR
-            ? 'Acesso grátis, sem cartão. No navegador, no iPhone e no Android.'
-            : 'Acesso grátis, sem cartão. Quer o app no celular? Deixe o e-mail, e a Trix avisa quando ele chegar às lojas.'}
+          {en
+            ? 'Free, no card needed. In the browser, on iPhone and on Android.'
+            : LOJAS_NO_AR
+              ? 'Acesso grátis, sem cartão. No navegador, no iPhone e no Android.'
+              : 'Acesso grátis, sem cartão. Quer o app no celular? Deixe o e-mail, e a Trix avisa quando ele chegar às lojas.'}
         </p>
         <a
           href="/abrir"
           className="titulo-secao mt-8 inline-block rounded-2xl bg-terracota-700 px-6 py-3 text-base text-white transition-colors hover:bg-terracota-900"
         >
-          Gerar meu roteiro
+          {en ? 'Generate my itinerary' : 'Gerar meu roteiro'}
         </a>
         <div className="mt-8">
-          {LOJAS_NO_AR ? (
-            <BotoesDasLojas centralizar />
+          {LOJAS_NO_AR || en ? (
+            <BotoesDasLojas centralizar idioma={idioma} />
           ) : (
             <WaitlistForm source={source} variant="cta" sobreNavy />
           )}

@@ -5,7 +5,18 @@ const baseUrl = 'https://trix.travel';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticRoutes: MetadataRoute.Sitemap = [
-    { url: `${baseUrl}/`, changeFrequency: 'weekly', priority: 1 },
+    {
+      url: `${baseUrl}/`,
+      changeFrequency: 'weekly',
+      priority: 1,
+      alternates: { languages: { 'pt-BR': `${baseUrl}/`, en: `${baseUrl}/en` } },
+    },
+    {
+      url: `${baseUrl}/en`,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+      alternates: { languages: { 'pt-BR': `${baseUrl}/`, en: `${baseUrl}/en` } },
+    },
     { url: `${baseUrl}/roteiro-de-viagem-15-dias`, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${baseUrl}/roteiro-europa`, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${baseUrl}/app-para-planejar-viagens`, changeFrequency: 'monthly', priority: 0.8 },

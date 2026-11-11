@@ -1,4 +1,5 @@
 import React from 'react';
+import type { Idioma } from '../lib/idioma';
 
 /**
  * Os três passos, na ordem do app: vibe, datas, cidades.
@@ -9,35 +10,69 @@ import React from 'react';
  *
  * O número do passo é mono e petróleo: é sinalização de progresso, e
  * petróleo é a cor do progresso. Nenhuma terracota aqui -- nada age.
+ *
+ * Em inglês, os jeitos de gastar levam os nomes que o app usa em inglês.
  */
-const PASSOS = [
-  {
-    titulo: 'Diga o que você quer fazer.',
-    corpo:
-      'Vinhos, centro histórico, praia, dias sem pressa. E o ritmo: duas paradas por dia ou cinco.',
+const TEXTOS = {
+  pt: {
+    rotulo: 'Como funciona',
+    titulo: 'Três perguntas, e o roteiro sai inteiro.',
+    passos: [
+      {
+        titulo: 'Diga o que você quer fazer.',
+        corpo:
+          'Vinhos, centro histórico, praia, dias sem pressa. E o ritmo: duas paradas por dia ou cinco.',
+      },
+      {
+        titulo: 'Diga quando, e com quem.',
+        corpo:
+          'As datas, ou só quantos dias. Quantas pessoas vão, e o jeito de gastar: Mochila leve, Conforto na medida ou Primeira classe.',
+      },
+      {
+        titulo: 'Escolha as cidades.',
+        corpo:
+          'Escreva o destino, ou deixe a Trix sugerir as cidades que cabem nesse tempo, com o motivo de cada uma.',
+      },
+    ],
+    fecho:
+      'O que volta é o dia a dia: o nome de cada lugar, o período, como chegar, o que reservar antes e quanto custa, dizendo se é por pessoa ou do grupo todo.',
   },
-  {
-    titulo: 'Diga quando, e com quem.',
-    corpo:
-      'As datas, ou só quantos dias. Quantas pessoas vão, e o jeito de gastar: Mochila leve, Conforto na medida ou Primeira classe.',
+  en: {
+    rotulo: 'How it works',
+    titulo: 'Three questions, and the whole itinerary is ready.',
+    passos: [
+      {
+        titulo: 'Say what you want to do.',
+        corpo:
+          'Wine, old towns, beaches, slow days. And your pace: two stops a day or five.',
+      },
+      {
+        titulo: 'Say when, and with whom.',
+        corpo:
+          'Your dates, or just how many days. How many people are going, and how you like to spend: Light backpack, Comfort where it counts or First class.',
+      },
+      {
+        titulo: 'Choose the cities.',
+        corpo:
+          'Type your destination, or let Trix suggest the cities that fit your time, with the reason for each one.',
+      },
+    ],
+    fecho:
+      'What comes back is the day by day: the name of each place, the time of day, how to get there, what to book ahead and what it costs, per person or for the whole group.',
   },
-  {
-    titulo: 'Escolha as cidades.',
-    corpo:
-      'Escreva o destino, ou deixe a Trix sugerir as cidades que cabem nesse tempo, com o motivo de cada uma.',
-  },
-];
+};
 
-export default function ComoFunciona() {
+export default function ComoFunciona({ idioma = 'pt' }: { idioma?: Idioma }) {
+  const t = TEXTOS[idioma];
   return (
     <section className="mx-auto max-w-6xl px-6 py-24">
-      <p className="rotulo-secao text-petroleo">Como funciona</p>
+      <p className="rotulo-secao text-petroleo">{t.rotulo}</p>
       <h2 className="titulo-secao mt-3 max-w-2xl text-3xl text-navy-500 md:text-4xl">
-        Três perguntas, e o roteiro sai inteiro.
+        {t.titulo}
       </h2>
 
       <ol className="mt-12 grid gap-8 md:grid-cols-3">
-        {PASSOS.map((p, i) => (
+        {t.passos.map((p, i) => (
           <li key={p.titulo} className="border-t-2 border-petroleo pt-5">
             <span className="font-mono text-sm text-petroleo">
               {String(i + 1).padStart(2, '0')}
@@ -48,11 +83,7 @@ export default function ComoFunciona() {
         ))}
       </ol>
 
-      <p className="mt-10 max-w-2xl leading-relaxed text-neutro-800">
-        O que volta é o dia a dia: o nome de cada lugar, o período, como
-        chegar, o que reservar antes e quanto custa, dizendo se é por pessoa
-        ou do grupo todo.
-      </p>
+      <p className="mt-10 max-w-2xl leading-relaxed text-neutro-800">{t.fecho}</p>
     </section>
   );
 }

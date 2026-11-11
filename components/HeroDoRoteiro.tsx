@@ -1,5 +1,6 @@
 import React from 'react';
 import DiaDeRoteiro from './DiaDeRoteiro';
+import type { Idioma } from '../lib/idioma';
 
 /**
  * O topo das páginas de entrada: a promessa à esquerda e um dia de
@@ -13,16 +14,22 @@ import DiaDeRoteiro from './DiaDeRoteiro';
  * E a linha embaixo do botão destrava o clique sem falar de plano: o
  * acesso é grátis e não pede cartão. **Não é teste** (Paulo, 20/10): a
  * Trix é grátis, com alguns recursos pagos, e preço vem depois do valor.
+ *
+ * Em inglês (11/11) não há "Ver roteiros prontos": a vitrine é só em
+ * português, como no app.
  */
 export default function HeroDoRoteiro({
   rotulo,
   titulo,
   resumo,
+  idioma = 'pt',
 }: {
   rotulo?: string;
   titulo: React.ReactNode;
   resumo: string;
+  idioma?: Idioma;
 }) {
+  const en = idioma === 'en';
   return (
     <section className="mx-auto grid max-w-6xl items-center gap-14 px-6 pb-20 pt-14 md:grid-cols-2 md:pt-20">
       <div className="space-y-6">
@@ -36,20 +43,24 @@ export default function HeroDoRoteiro({
             href="/abrir"
             className="titulo-secao inline-block rounded-2xl bg-terracota-700 px-6 py-3.5 text-base text-white transition-colors hover:bg-terracota-900"
           >
-            Gerar meu roteiro
+            {en ? 'Generate my itinerary' : 'Gerar meu roteiro'}
           </a>
-          <a
-            href="#roteiros"
-            className="titulo-secao text-base text-navy-500 underline-offset-4 hover:underline"
-          >
-            Ver roteiros prontos
-          </a>
+          {!en && (
+            <a
+              href="#roteiros"
+              className="titulo-secao text-base text-navy-500 underline-offset-4 hover:underline"
+            >
+              Ver roteiros prontos
+            </a>
+          )}
         </div>
         <p className="text-sm text-neutro-600">
-          Acesso grátis, sem cartão. Monte seu roteiro agora.
+          {en
+            ? 'Free, no card needed. Build your itinerary now.'
+            : 'Acesso grátis, sem cartão. Monte seu roteiro agora.'}
         </p>
       </div>
-      <DiaDeRoteiro />
+      <DiaDeRoteiro idioma={idioma} />
     </section>
   );
 }

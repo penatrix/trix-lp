@@ -2,8 +2,35 @@
 
 import React from 'react';
 import Marca from './Marca';
+import type { Idioma } from '../lib/idioma';
 
-export default function Footer() {
+/**
+ * Em inglês (11/11) os links são os mesmos: suporte, termos, privacidade
+ * e exclusão de conta só existem em português, e o rótulo avisa.
+ */
+const TEXTOS = {
+  pt: {
+    suporte: 'Suporte',
+    termos: 'Termos de Uso',
+    privacidade: 'Política de Privacidade',
+    excluir: 'Excluir conta',
+    cookies: 'Preferências de Cookies',
+    empresa: 'Empresa de tecnologia. Não somos agência de viagens.',
+    aviso: '',
+  },
+  en: {
+    suporte: 'Support',
+    termos: 'Terms of Use',
+    privacidade: 'Privacy Policy',
+    excluir: 'Delete account',
+    cookies: 'Cookie preferences',
+    empresa: 'A technology company. We are not a travel agency.',
+    aviso: 'Support and legal pages are in Portuguese.',
+  },
+};
+
+export default function Footer({ idioma = 'pt' }: { idioma?: Idioma }) {
+  const t = TEXTOS[idioma];
   const reviewCookies = () => {
     window.dispatchEvent(new Event('trix:review-cookies'));
   };
@@ -15,29 +42,23 @@ export default function Footer() {
 
         <nav className="flex flex-wrap justify-center gap-6 text-sm text-neutro-600">
           <a href="/suporte" className="transition-colors hover:text-terracota-700">
-            Suporte
+            {t.suporte}
           </a>
           <a href="/termos" className="transition-colors hover:text-terracota-700">
-            Termos de Uso
+            {t.termos}
           </a>
-          <a
-            href="/privacidade"
-            className="transition-colors hover:text-terracota-700"
-          >
-            Política de Privacidade
+          <a href="/privacidade" className="transition-colors hover:text-terracota-700">
+            {t.privacidade}
           </a>
-          <a
-            href="/excluir-conta"
-            className="transition-colors hover:text-terracota-700"
-          >
-            Excluir conta
+          <a href="/excluir-conta" className="transition-colors hover:text-terracota-700">
+            {t.excluir}
           </a>
           <button
             type="button"
             onClick={reviewCookies}
             className="transition-colors hover:text-terracota-700"
           >
-            Preferências de Cookies
+            {t.cookies}
           </button>
         </nav>
 
@@ -48,7 +69,13 @@ export default function Footer() {
         <p className="text-center text-xs leading-relaxed text-neutro-600 md:text-right">
           © 2026 Trix
           <br />
-          Empresa de tecnologia. Não somos agência de viagens.
+          {t.empresa}
+          {t.aviso && (
+            <>
+              <br />
+              {t.aviso}
+            </>
+          )}
         </p>
       </div>
     </footer>
