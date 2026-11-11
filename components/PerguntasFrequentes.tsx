@@ -85,7 +85,7 @@ const TEXTOS: Record<Idioma, { rotulo: string; titulo: string; perguntas: Pergun
       {
         p: 'What happens to my data?',
         r: 'It is used to build your itineraries. Deleting your account erases everything, permanently.',
-        link: { href: '/privacidade', texto: 'Privacy Policy (in Portuguese)' },
+        link: { href: '/en/privacy', texto: 'Privacy Policy' },
       },
     ],
   },

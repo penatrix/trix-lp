@@ -5,12 +5,14 @@ import Marca from './Marca';
 import type { Idioma } from '../lib/idioma';
 
 /**
- * Em inglês (11/11) os links são os mesmos: suporte, termos, privacidade
- * e exclusão de conta só existem em português, e o rótulo avisa.
+ * Em inglês (11/11) a privacidade aponta para a versão em inglês
+ * (`/en/privacy`); suporte, termos e exclusão de conta só existem em
+ * português, e o rótulo avisa.
  */
 const TEXTOS = {
   pt: {
     suporte: 'Suporte',
+    linkPrivacidade: '/privacidade',
     termos: 'Termos de Uso',
     privacidade: 'Política de Privacidade',
     excluir: 'Excluir conta',
@@ -20,12 +22,13 @@ const TEXTOS = {
   },
   en: {
     suporte: 'Support',
+    linkPrivacidade: '/en/privacy',
     termos: 'Terms of Use',
     privacidade: 'Privacy Policy',
     excluir: 'Delete account',
     cookies: 'Cookie preferences',
     empresa: 'A technology company. We are not a travel agency.',
-    aviso: 'Support and legal pages are in Portuguese.',
+    aviso: 'Support, Terms and account deletion pages are in Portuguese.',
   },
 };
 
@@ -47,7 +50,7 @@ export default function Footer({ idioma = 'pt' }: { idioma?: Idioma }) {
           <a href="/termos" className="transition-colors hover:text-terracota-700">
             {t.termos}
           </a>
-          <a href="/privacidade" className="transition-colors hover:text-terracota-700">
+          <a href={t.linkPrivacidade} className="transition-colors hover:text-terracota-700">
             {t.privacidade}
           </a>
           <a href="/excluir-conta" className="transition-colors hover:text-terracota-700">
